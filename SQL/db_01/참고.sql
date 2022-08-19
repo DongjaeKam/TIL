@@ -1,8 +1,8 @@
 CREATE TABLE healthcare (
 id PRIMARY KEY,
-sido INTEGER NOT NULL,
-gender INTEGER NOT NULL,
-age INTEGER NOT NULL,
+sido INTEGER ,
+gender INTEGER ,
+age INTEGER,
 height INTEGER NOT NULL,
 weight INTEGER NOT NULL,
 waist REAL NOT NULL,
