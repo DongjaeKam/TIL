@@ -9,8 +9,6 @@ def MultipleOfThree(_tuple):
         N += tmp%10
         tmp//=10
 
-   
-
 
     if N < 10:
         return ( 1 , N)
@@ -20,7 +18,7 @@ def MultipleOfThree(_tuple):
         tmp[1] = N
         return tmp
 
-N = MultipleOfThree(s)
+N = MultipleOfThree((0,s))
 
 print(N[0])
 if N[1] % 3 == 0:
