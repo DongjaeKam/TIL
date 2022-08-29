@@ -1,5 +1,8 @@
 from django.db import models
 
+# Genre 클래스를 만드는데,
+# models.Model 내부 클래스를 상속 받는다. 
+# 왜 상속 받을까요? 기능들을 활용하고 싶어서. (미리 만들어진)
 class Director(models.Model):
     name = models.TextField()
     debut = models.DateTimeField()
@@ -8,22 +11,22 @@ class Director(models.Model):
 class Genre(models.Model):
     title = models.TextField()
 
+class Movie(models.Model):
+    director = models.ForeignKey(Director,on_delete=models.CASCADE)
+    genre = models.ForeignKey(Genre,on_delete=models.CASCADE)
+    title = models.TextField()
+    opening_date = models.DateField()
+    running_time = models.IntegerField()
+    screening = models.BooleanField()
 
-Director.objects.create(name ='봉준호', debut = '1993-1-1', country = 'KOR')
-Director.objects.create(name ='김한민', debut = '1993-1-1', country = 'KOR')
-Director.objects.create(name ='최동훈', debut = '2004-1-1', country = 'KOR')
-Director.objects.create(name ='이정재', debut = '2022-1-1', country = 'KOR')
-Director.objects.create(name ='이경규', debut = '2022-1-1', country = 'KOR')
-Director.objects.create(name ='이정재', debut = '2022-1-1	', country = 'KOR')
-Director.objects.create(name ='Joseph Kosinski', debut = '1993-1-1', country = 'KOR')
-Director.objects.create(name ='김철수', debut = '1993-1-1', country = 'KOR')
 
-Genre.objects.create(title = '액션')
-Genre.objects.create(title = '드라마')
-Genre.objects.create(title = '사극')
-Genre.objects.create(title = '범죄')
-Genre.objects.create(title = '스릴러')
-Genre.objects.create(title = 'SF')
-Genre.objects.create(title = '무협')
-Genre.objects.create(title = '첩보')
-Genre.objects.create(title = '재난')
+
+
+# class Person:
+#     pass 
+
+# # iu라고 하는 변수의 이름을 가진
+# # Person 클래스의 인스턴스를 만드는 코드는?
+# iu = Person() 
+# # iu의 name 속성으로 아이유라고 하는 코드는?
+# iu.name = '아이유'

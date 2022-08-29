@@ -38,16 +38,6 @@ deactivate
 ```
     
 ### 패키지 설치
-| 아래의 모든 명령어는 가상환경을 실행한 상태로 진행하세요. 
-* 가상환경 실행
-   * windows
-    ```bash
-    . venv/Scripts/activate
-    ```
-    * mac
-    ```zsh
-    . venv/bin/activate
-    ```
 * pip install
 ```bash
 pip install -r requirements.txt 
