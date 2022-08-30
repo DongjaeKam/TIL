@@ -1,0 +1,54 @@
+/* 아래에 CSS를 작성해주세요. */
+.cards{
+    width : 300px;
+
+}
+
+.photo{
+    width : 284px;
+    margin : 8px ;
+    height : 280px;
+    background-color: blue;
+}
+.store_name{
+   width : 250px;
+   height : 13px;
+   margin :0 auto;
+   padding-bottom: 3px;
+   font-size: 10px;
+   color : gray;
+}
+.item_name{
+    height: 14px;
+    padding : 1px, 1px, 0px, 0px;
+    width : 250px;
+    margin :0 auto;
+    font-size: 12px;
+}
+.price_info{
+    width : 250px;
+    margin: 0 auto;
+}
+.discount_rate{
+
+    margin-right:3px;
+    float: left;
+    color : aqua ;
+}
+.price{
+
+}
+    
+.eval_mark_and_reviews{
+    width : 250px;
+    margin: 0 auto;
+}
+.eval_mark{
+    font-size: 10px;
+    margin-right:3px;
+    float: left
+}
+.reviews{
+    font-size: 10px;
+    color:gray;
+}
