@@ -1,0 +1,90 @@
+header{
+        height : 50px;
+        width : 2000px;
+
+}
+
+a { text-decoration: none; color: black; }    
+a:visited { text-decoration: none; }    
+a:hover { text-decoration: none; }    
+a:focus { text-decoration: none; }    
+a:hover, a:active { text-decoration: none; }
+
+
+.btn_search{
+        float:left;
+        height : 50px;
+        width : 50px;
+        padding : 10px 10px 10px 10px;
+        /* background-color: gray; */
+}
+.btn_navigator{
+        float:left;
+        height : 50px;
+        width : 50px;
+        padding : 10px 10px 10px 10px;
+        /* background-color: aqua; */
+}
+.btn_brightness{
+        float:left;
+        height : 50px;
+        width : 50px;
+        padding : 10px 10px 10px 10px;
+        /* background-color: green; */
+}
+
+.logo{
+        float:left;
+        width :140px;
+        margin-right : 50px ;
+        height:50px;
+        font-size : 50px;
+        padding : 10px 10px 10px 10px;
+        /* background-color: red; */
+        line-height: 44px;
+        text-align: center;
+
+
+}
+
+        
+
+.btn_Responsibility{
+        float:left;
+        width :200px;
+        height:50px;
+        
+        font-size : 30px;
+        margin :0px 75px 0px 0px;
+        padding : 10px 10px 10px 10px;
+        /* background-color: yellow; */
+        line-height: 44px;
+        text-align: center;
+
+        
+}
+
+.btn_TechAndService{
+        float:left;
+        width :310px;
+        height:50px;
+        font-size : 30px;
+        margin :0px 0x 0px 0px;
+        padding : 10px 10px 10px 10px;
+        /* background-color: brown; */
+        line-height: 44px;
+
+        
+}
+.btn_Tech{
+        float:left;
+        width :60px;
+        height:50px;
+        font-size : 30px;
+        margin :0px 100px 0px 0px;
+        padding : 10px 10px 10px 10px;
+        font-size : 30px;
+        /* background-color: purple; */
+        line-height: 44px;
+        
+}
