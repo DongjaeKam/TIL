@@ -1,90 +1,87 @@
-header{
-        height : 50px;
-        width : 2000px;
-
+body{
+        margin : 0 auto;
+        border: 1PX;
 }
 
-a { text-decoration: none; color: black; }    
-a:visited { text-decoration: none; }    
-a:hover { text-decoration: none; }    
-a:focus { text-decoration: none; }    
-a:hover, a:active { text-decoration: none; }
-
-
-.btn_search{
-        float:left;
-        height : 50px;
-        width : 50px;
-        padding : 10px 10px 10px 10px;
-        /* background-color: gray; */
+.header_container {
+        display: flex;
+        align-items: center;
+        justify-content : space-around;   
+        width: 2500px;
+        height: 50px;
+        margin:0 auto;
+        position:sticky;
 }
-.btn_navigator{
-        float:left;
-        height : 50px;
-        width : 50px;
-        padding : 10px 10px 10px 10px;
-        /* background-color: aqua; */
-}
-.btn_brightness{
-        float:left;
-        height : 50px;
-        width : 50px;
-        padding : 10px 10px 10px 10px;
-        /* background-color: green; */
-}
-
 .logo{
-        float:left;
-        width :140px;
-        margin-right : 50px ;
-        height:50px;
-        font-size : 50px;
-        padding : 10px 10px 10px 10px;
-        /* background-color: red; */
-        line-height: 44px;
+        width: 150px;
+        height: 50px;
+        font-size: 40px;
         text-align: center;
-
-
+        padding: 5px 0 5px 0;
 }
-
-        
-
-.btn_Responsibility{
-        float:left;
-        width :200px;
-        height:50px;
-        
-        font-size : 30px;
-        margin :0px 75px 0px 0px;
-        padding : 10px 10px 10px 10px;
-        /* background-color: yellow; */
-        line-height: 44px;
+.resbonsibility{
+        width: 200px;
+        height: 30px;
+        font-size: 30px;
         text-align: center;
-
-        
+}
+.tech{
+        width: 80px;
+        height: 30px;
+        font-size: 30px;
+        text-align: center;
+}       
+.tech_and_service{
+        width: 300px;
+        height: 30px;
+        font-size: 30px;
+        text-align: center;
+}
+.item_container{
+        display: flex;
+        width: 150px;
+        height: 50px;
+}
+.earth-outline{
+        width: 50px;
+        height: 50px;
 }
 
-.btn_TechAndService{
-        float:left;
-        width :310px;
-        height:50px;
-        font-size : 30px;
-        margin :0px 0x 0px 0px;
-        padding : 10px 10px 10px 10px;
-        /* background-color: brown; */
-        line-height: 44px;
+.search-outline{
+        width: 50px;
+        height: 50px;
+}
+.sunny-outline{
+        width: 50px;
+        height: 50px;
+}
+.moon-outline{
+        width: 50px;
+        height: 50px;
+}
+.main_container{
+        display: flex;
+        align-items: center;
+        justify-content : space-around;   
+        width: 2500px;
+        margin:0 auto;
+}
+.cards_container
+{
+        width : 200px;
+        margin:0 auto;
+        display: flex;
+        flex-direction : row;
+        /* justify-content : flex-center; */
+        /* justify-content: center; */
+    
+    
+}
+.cards
+{
+width : 300px;
+display: flex;
+flex-direction : column;
+}
 
-        
-}
-.btn_Tech{
-        float:left;
-        width :60px;
-        height:50px;
-        font-size : 30px;
-        margin :0px 100px 0px 0px;
-        padding : 10px 10px 10px 10px;
-        font-size : 30px;
-        /* background-color: purple; */
-        line-height: 44px;
-        
-}
+

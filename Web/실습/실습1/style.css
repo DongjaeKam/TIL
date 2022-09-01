@@ -11,17 +11,22 @@
 .cards_container{
     width : 900px;
     margin:0 auto;
-  
+    display: flex;
+    flex-direction : row;
+    /* justify-content : flex-center; */
+    /* justify-content: center; */
+
+
 }
 .cards{
     width : 300px;
-    float: left;
+    display: flex;
+    flex-direction : column;
 }
 .photos_container{
+    
     width:300px;
     height:300px;
-    
-
 }
 
 .photos{
@@ -39,7 +44,7 @@
     margin : 0 auto;
     font-size: 6px;
     color : grey;
-    -webkit-text-size-adjust: none;
+    
 }   
 .guide_titles{
     width:280px;
@@ -54,6 +59,6 @@
     font-size: 6px;
     margin : 0 auto;
     color : grey;
-    -webkit-text-size-adjust: none;
+    
    
 }
