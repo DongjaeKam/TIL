@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/reboot.css">
     <link rel="stylesheet" href="./styles/style.css">
+    <script src="index.js"></script>
     <title>영화추천사이트</title>
-</head>
 
+</head>
 <body>
     <header>
-        <img class=logo src="./images/logo.png" alt="로고 이미지">
+        <img id=logo src="./images/logo.png" alt="로고 이미지">
         <nav>
             <ul class=wrap_button>
                 <li><a class=nav_button href="#">Main</a></li>
@@ -22,7 +23,7 @@
             </ul>
         </nav>
     </header>
-    <div class="banner">
+    <div id="banner">
         <h1 class="banner-title">영화 추천 서비스</h1>
     </div>
     <main id="content">
@@ -48,7 +49,10 @@
                 </div>
                 <div class="card">
                     <img src="./images/163788.jpg" alt="">
-                    <p class="tit">알라딘</p>
+                    <div id = "iframe_container">
+                        <iframe width="226" height="324" src="https://www.youtube.com/embed/AOC_8HfLWAI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p>알라딘</p>
                 </div>
 
             </div>
@@ -58,6 +62,15 @@
     <footer>
         <p>WEB-PRJ 2022. 09. 02 created by 감동재 오채현 이준엽</p>
     </footer>
+
+    <script>
+            document.getElementById("banner")
+            .addEventListener("click", function(event) {
+            alert("Submit button is clicked!");
+            event.preventDefault();
+        });
+    </script>
+
 </body>
 
 </html>
