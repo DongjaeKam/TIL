@@ -1,0 +1,24 @@
+.nav-item{
+    margin : 4px;
+}
+.content_lorem{
+    padding : 30px;
+}
+.content_lorem p{
+
+    margin-top: 30px;
+}
+.content_lorem h2{
+
+    text-align: center;
+}
+
+.carousel-inner{
+    width: 1200px;
+    height: 900px;
+}
+
+.carousel-inner img {
+   
+    object-fit: cover;
+}
