@@ -1,0 +1,30 @@
+.container-fluid{
+
+    justify-content: space-around;
+
+}
+.count-num{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width : 15px;
+    height : 15px;
+    background-color: black;
+    border-radius: 50%;
+    color : white;
+    margin : 2px;
+    font-size: 2px;
+    text-align: center;
+    margin : 0px 2px;
+
+}
+button img{
+
+    margin : 0px 2px;
+
+}
+
+.text{
+    margin : 0px 2px;
+}
