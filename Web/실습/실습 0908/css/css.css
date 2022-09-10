@@ -28,3 +28,27 @@ button img{
 .text{
     margin : 0px 2px;
 }
+.Card-Box{
+
+    margin : 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.card .card-body{
+
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.card .card-body a{
+    background-color: white;
+    color : gray;
+}
+
+.card .card-body a:hover{
+    background-color: black;
+    color : white;
+}
