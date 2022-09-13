@@ -1,0 +1,67 @@
+.logo{
+    height : 10px;
+    padding : 2px;
+}
+.navbar-nav{
+    flex-direction: row;
+}
+
+.navbar-nav li{
+
+    padding : 8px;
+    color: white;
+
+}
+
+.navbar{
+
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height:50px;
+    margin : 0 auto
+}
+
+
+
+
+@media (min-width:900px) {
+    .photo-2{
+        display: none;
+    }
+    .photo-1{
+        display: none;
+    }      
+}
+
+@media (min-width:577px) AND (max-width:899px) {
+
+    .photo-3{
+        display: none;
+    }
+    
+    .photo-1{
+        display: none;
+    }
+
+
+}
+@media (max-width:576px) {
+    .photo-3{
+        display: none;
+    }
+    
+    .photo-2{
+        display: none;
+    }
+
+
+}
