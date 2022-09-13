@@ -1,4 +1,4 @@
-var added_item_count = 1;
+var added_item_count = 0;
 let nomal_price =[0,2000,3000,4000,5000]
 let discount_price = [0,1000,3000,3000,5000]
 
