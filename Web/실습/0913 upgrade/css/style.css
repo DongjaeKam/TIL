@@ -30,7 +30,9 @@ footer{
     margin : 0 auto
 }
 
-
+th, td {
+    border: 1px solid #444444;
+}
 
 
 @media (min-width:900px) {
@@ -64,4 +66,53 @@ footer{
     }
 
 
+}
+
+.bullen_board{
+
+    margin:0 auto;
+
+}
+.board-table{
+    width:670px;
+}
+main{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1{
+    font-family: 'Mukta', sans-serif;
+  
+}
+
+.th-num-style{
+
+    text-align: center;
+
+}
+.th-title-style{
+
+    padding:3px;
+    width:300px;
+
+}
+
+.th-id-style{
+
+    text-align: center;
+}
+
+.th-recommendations-style{
+
+    text-align: center;
+
+}
+
+.th-date-style{
+    
+    text-align: center;
 }

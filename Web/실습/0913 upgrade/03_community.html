@@ -13,29 +13,161 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="test.js"></script>
 
-
 </head>
 
 <body>
 
   <nav class="navbar bg-black d-flex ">
-      <a class="navbar-brand" href="./02_home.html">
-        <img src="./images/logo.png" alt="Logo" width="50" height="40" class="d-inline-block align-text-top">
-      </a>
-      <ul class="navbar-nav" >
-        <li class="nav-item"  style="color:white;">
-          <a class="nav-link active" aria-current="page" href="./02_home.html"><span style="color:white;">Home</span></a>
-        </li>
-        <li class="nav-item" style="color:gray;">
-          <a class="nav-link" href="03_community.html"><span style="color:gray;">Community</span></a>
-        </li>
-        <li class="nav-item" style="padding-top:14px">
-          <!-- Button trigger modal -->
-          <button type="button" class="" style="background-color: black;" data-bs-toggle="modal" data-bs-target="#LoginModal"><span style="color:gray;">Login</span></button>
-        </li>
-      </ul>
-  </nav>
+    <a class="navbar-brand" href="./index.html">
+      <img src="./images/logo.png" alt="Logo" width="50" height="40" class="d-inline-block align-text-top">
+    </a>
+    <ul class="navbar-nav" >
+      <li class="nav-item"  style="color:gray;">
+        <a class="nav-link active" aria-current="page" href="./index.html"><span style="color:gray;">Home</span></a>
+      </li>
+      <li class="nav-item" style="color:gray;">
+        <a class="nav-link" href="03_community.html"><span style="color:white;">Community</span></a>
+      </li>
+      
+      <li class="nav-item" style="color:gray;">
+          <a class="nav-link" href="05_movie.html"><span style="color:gray;">movie</span></a>
+      </li>
 
+      
+      <li class="nav-item" style="padding-top:14px">
+        <!-- Button trigger modal -->
+        <button type="button" class="" style="background-color: black;" data-bs-toggle="modal" data-bs-target="#LoginModal"><span style="color:gray;">Login</span></button>
+      </li>
+     
+      <li class="nav-item" style="color:gray;">
+          <a class="nav-link" href="04_form.html"><span style="color:gray;">review</span></a>
+      </li>
+  
+      </ul>
+</nav>
+
+
+  <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="LoginModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email Adresss</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1">
+            <p>We'll never share your email with anyone else.</p>
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleFormControlInput1">
+          </div>
+
+          <div class="form-check ">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Check me out
+            </label>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="d-flex flex-row justify-content-between" style="width: 920px;">
+      <div style= " width:200px; margin:5px; border : 2px solid black; border-radius:10px;">
+        <ul style="list-style:none; margin:3px">
+          <li>쇼생크 탈출</li>
+          <li>죽은 시인의 사회</li>
+          <li>다크 나이트 라이즈</li>
+          <li>Her</li>
+          <li>위대한 쇼맨</li>
+        </ul>
+      </div>
+
+      <div class="d-flex flex-column" style="padding:5px; width:700px;">
+        <div class="d-flex flex-row ">
+          <div class="movie_img">
+            <img src="./images/movie1.jpg" style="width:200px;" alt="">
+          </div>
+          <div class="movie_info" style="padding:10px; margin:5px; border : 2px solid black; border-radius:10px;">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem fuga alias perferendis, reprehenderit
+              excepturi unde obcaecati aut, molestiae tenetur totam a? Dicta repudiandae culpa vel numquam veniam saepe,
+              repellendus quod.</p>
+          </div>
+        </div>
+        <div class="bullen_board">
+          <h2 style="text-align: center;">후기</h2>
+          <section class="notice">
+            <!-- board list area -->
+            <div id="board-list">
+              <div class="container">
+                <table class="board-table">
+                  <thead style="background-color: gray; text-align: center;">
+                    <tr>
+                      <th scope="col" class="th-num">번호</th>
+                      <th scope="col" class="th-title">제목</th>
+                      <th scope="col" class="th-id">ID</th>
+                      <th scope="col" class="th-date">등록일</th>
+                      <th scope="col" class="th-recommendations">추천수</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="th-num-style">3</td>
+                      <th class="th-title-style">
+                        <a href="#!">후기</a>
+                      </th>
+                      <td class="th-id-style">xvz6r99st5</td>
+                      <td class="th-date-style">2017.07.13</td>
+                      <th scope="col" class="th-recommendations-style">0</th>
+                    </tr>
+
+                    <tr>
+                      <td class="th-num-style">2</td>
+                      <th class="th-title-style"><a href="#!">후기</a></th>
+                      <td class="th-id-style">odsg88606v</td>
+                      <td class="th-date-style">2017.06.15</td>
+                      <th scope="col" class="th-recommendations-style">0</th>
+                    </tr>
+
+                    <tr>
+                      <td class="th-num-style">1</td>
+                      <th class="th-title-style"><a href="#!">후기</a></th>
+                      <td class="th-id-style">odsg88606v</td>
+                      <td class="th-date-style">2017.06.15</td>
+                      <th scope="col" class="th-recommendations-style">0</th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </section>
+          <div class="d-flex flex-row-reverse text-center" style="margin:10px">
+            <a href="./04_form.html" class="btn btn-primary" style="font-size:10px; padding:3px 5px;">글쓰기</a>
+          </div>
+        
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+
+  </main>
 
   <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -73,12 +205,9 @@
     </div>
   </div>
 
-  <main>
-    <p>community</p>
-  </main>
 
   <footer>
-    <div>Footer</div>
+    <div>Created by 노가빈 감동재</div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
