@@ -1,11 +1,11 @@
 function newFunction(n){     
     
-    var file_name = ['movie1.jpg','movie2.jpg', 'movie3.jpg', 'movie4.jpg','movie5.jpg','movie6.jpg'];
+    let file_name = ['movie1.jpg','movie2.jpg', 'movie3.jpg', 'movie4.jpg','movie5.jpg','movie6.jpg'];
     
-    var i = 0;
+    let i = 0;
 
-    var cnt = 0;
-    var output = "";
+    let cnt = 0;
+    let output = "";
 
     let a1 = '<div class="carousel-item active ">';
     let a2 = '<div class="d-flex">';
@@ -14,17 +14,23 @@ function newFunction(n){
     let a5 = '</div>'+'</div>';
 
     while(true){
-        var tmp = "";
+        let tmp = "";
         for(i=cnt;i<cnt+n;i++)
         {
-            tmp+='<img src="./images/'+file_name[i]+'" style = "padding:10px" alt="">';
+            try{
+                tmp+='<img src="./images/'+file_name[i]+'" style = "padding:10px" alt="">';
+            }
+            catch(e){
+                continue
+            }
+            
         }   
 
         output+=(a1+a2+tmp+a5);
         cnt+=n;
         
 
-        if(cnt == 6)
+        if(cnt >= 6)
         {            
             break;
         }
