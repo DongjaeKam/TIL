@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .modal-overlay {
+      /* position은 전체 화면 기준*/
+      position: fixed;
+      border-radius: 10px;
+      top: 20px;
+      left: 20px;
+      /* 배경색, 너비, 높이 */
+      background-color: beige;
+      border-width: 2px;
+      opacity: 0.8;
+      width: 200px;
+      height: 300px;
+      /* 내부 내용 */
+      color: white;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: left;
+      padding:10px;
+      /* 기본은 안보이게 */
+      display: none;
+    }
+
+    .active {
+      display: flex;
+      padding
+      
+      
+    }
+  </style>
+</head>
+<body>
+  <button id="modal-btn">모달 버튼</button>
+    <div id="modal-content" class="modal-overlay">
+        <input type="email" id = "email" class="form-control input-style" placeholder="Email 주소를 입력하세요">
+        <p id="email-comment"></p>
+        <input type="email" id = "check-email" class="form-control input-style" placeholder="확인" >
+        <p id="check-email-comment"></p>
+        <button id="confirm-email">확인</button> 
+    </div>
+    </div>
+
+  
+
+  <script>
+    // 모달 버튼이 클릭되면
+    const modalToggle = function() {
+      document.querySelector('#modal-content').classList.toggle('active')
+    }
+    
+    const modalBtn = document.querySelector('#modal-btn')
+    modalBtn.addEventListener('click', modalToggle)
+    console.log()
+    // 모달 오버레이를 클릭하면
+    //const modalOverlay = document.querySelector('#modal-content')
+    ///modalOverlay.addEventListener('click', modalToggle)
+
+        const email_box = document.querySelector('#email')
+        const check_email = document.querySelector('#check-email')
+        const check_email_comment = document.querySelector('#check-email-comment')
+        check_email.addEventListener('input', function(e) {
+      // input의 value를 받아오고 싶음
+      // input은 이벤트의 대상!
+            
+            if( email_box.value === check_email.value){
+                check_email_comment.innerHTML="같습니다."
+                check_email_comment.style.color ="black"
+            }   
+            else if(check_email.value===""){
+                check_email_comment.innerHTML=""
+            }
+            else{
+                check_email_comment.innerHTML="같게 입력하세요."
+                check_email_comment.style.color ="red"
+            }
+
+
+
+      // 3. 그대로 출력하기
+        })
+
+        const confirm_email = document.querySelector('#confirm-email');
+
+        confirm_email.addEventListener('click',function(e){
+
+          
+          if( email_box.value === check_email.value){
+                
+          }   
+          else{
+              alert("ID가 일치하지 않습니다.")
+          }
+        })
+      
+
+  </script>
+</body>
+</html>

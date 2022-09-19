@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id = "input-box" type="text">
+    <p id ="output-box"></p>
+
+
+    <script>
+
+        const input_box = document.querySelector('#input-box')
+        const output_box = document.querySelector('#output-box')
+        input_box.addEventListener('input', function(e) {
+      // input의 value를 받아오고 싶음
+      // input은 이벤트의 대상!
+            console.log(e)
+            console.log(e.target.value)
+            output_box.innerHTML = e.target.value
+
+      // 3. 그대로 출력하기
+        })
+
+
+    </script>
+
+
+</body>
+</html>
