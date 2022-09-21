@@ -1,11 +1,29 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
 .header{
     display: flex;
-    position:sticky;
+    background-color: white;
+    position: sticky;
+    top: 0;
+
+
     flex-direction: row;
     height :50px;
+    width: 100%;
     align-items: center;
     justify-content: space-around;
     font-size: 30px;
+    padding: 10px;
+
+    margin: 0 auto;
+
 }
 
 .item_container{
@@ -89,44 +107,59 @@ a:hover{
     margin : 50px 200px;
 }
 
-#main .first-floor{
-    display: flex;
-    flex-direction: row;
-    
-}
-#main .second-floor{
-    display: flex;
-    flex-direction: column;
-    padding:50px;
-    background-color: aqua;
-    
-}
-#main .third-floor{
-    display: flex;
-    flex-direction: row;
-    
-}
-#main .forth-floor{
-    display: flex;
-    flex-direction: row;
-    
-}
 
-#main .first_floor .section1{
-    flex-grow:1;
-    background-color: aquamarine;
-}
 
-#main .first_floor .section2{
-    flex-grow:2;
-    background-color: blanchedalmond;
-}
 
 .first-floor{
 
     display: flex;
+    justify-content: center;
+}
 
 
+.second-floor{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    height: 400px;
+
+}
+
+.third-floor{
+
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+
+}
+.forth-floor{
+
+    display: flex;
+    height:400px;
+    margin-top : 10px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.clone-service{
+    margin :5px;
+    height: 100%;
+    border-radius: 10px;
+    width:620px;
+    background-color: blue;
+}
+
+.clone-incruitment{
+    margin :10px;
+    height: 100%;
+    border-radius: 10px;
+    width:620px;
+    background-color: yellow;
 }
 
 .container{
@@ -134,21 +167,177 @@ a:hover{
     display: flex;
 }
 
-.small-card-container{
-    width:500px;
-    margin:10px;
-    flex-wrap: wrap;
-    display: flex;
+
+@media screen and (min-width:1000px) {
+    .small-card-container{
+        width:650px;
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: row;
+        background-color: yellow;
+    }
+    .small-card{
+        width:300px;
+        height:300px ;
+        border-radius: 10px;
+        box-shadow: 5px 5px gray;
+        padding : 10px;
+    }
+    
+    .card{
+        width:600px;
+        height: 600px;
+        border-radius: 10px;
+        box-shadow: 5px 5px gray;
+        padding : 10px;
+        margin : 10px;
+    }
+    
 }
 
+@media screen and (max-width:999px) and (min-width:800px) {
+    
+    .small-card-container{
+        width:350px;
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: row;
+        background-color: yellow;
+    }
 
-.small-card{
-    width:200px;
-    border-radius: 10px;
-    box-shadow: 5px 5px gray;
-    padding : 10px;
-    margin : 10px;
 }
+
+@media screen and (max-width:799px) and (min-width:500px){
+    .first-floor{
+        width:500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin:0 auto;
+    }
+    .second-floor{
+        width:500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin:0 auto;
+    }
+    .third-floor{
+        width:500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin:0 auto;
+    }
+    .forth-floor{
+        width:500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin:0 auto;
+    }
+    .small-card-container{
+        width:450px;
+        flex-wrap: wrap;
+        display: flex;
+        
+        flex-direction: column;
+        background-color: yellow;
+        margin: 0 auto;
+    }
+
+   
+
+    .tech{
+        display: none;
+    }
+
+    .responsibility{
+        display: none;
+    }
+    .tech_and_service{
+        display: none;
+    }
+}
+
+@media screen and (max-width : 499px) {
+    
+    .header{
+
+        width:500px;
+
+    }
+
+
+    .first-floor{
+        width:500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    .second-floor{
+        width:500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    .third-floor{
+        width:500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    .forth-floor{
+        width:500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    .small-card-container{
+        width:450px;
+        flex-wrap: wrap;
+        display: flex;
+        
+        flex-direction: column;
+        background-color: yellow;
+        margin: 0 auto;
+    }
+
+    .card{
+
+        margin: 0 auto;
+
+    }
+    .small-card{
+
+        margin: 0 auto;
+
+    }
+
+    .tech{
+        display: none;
+    }
+
+    .responsibility{
+        display: none;
+    }
+    .tech_and_service{
+        display: none;
+    }
+}
+
 
 
 .small-card .loudspeaker{
@@ -188,13 +377,6 @@ a:hover{
 
 }
 
-.card{
-    width:400px;
-    border-radius: 10px;
-    box-shadow: 5px 5px gray;
-    padding : 10px;
-    margin : 10px;
-}
 
 
 .card .loudspeaker{
