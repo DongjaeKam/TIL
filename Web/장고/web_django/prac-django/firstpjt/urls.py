@@ -16,6 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+### views에서 불러오기
+from articles import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('index/',views.index),
+    path('index/welcome/<name>',views.welcome),
+    path('index/today-dinner/',views.menu),
+    path('index/lotto/',views.lotto),
 ]

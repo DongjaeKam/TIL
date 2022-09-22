@@ -12,8 +12,6 @@ body{
     background-color: white;
     position: sticky;
     top: 0;
-
-
     flex-direction: row;
     height :50px;
     width: 100%;
@@ -21,7 +19,9 @@ body{
     justify-content: space-around;
     font-size: 30px;
     padding: 10px;
-
+    border-bottom-width:2px;
+    border-bottom-color:black ;
+    padding-bottom : 12px;
     margin: 0 auto;
 
 }
@@ -94,12 +94,24 @@ a:hover{
 
 .banner{
     padding:50px;
-    width:100%;
+    width:1200px;
+    margin:0 auto;
+    margin-top: 5px;
     background-color: beige;
 }
+.banner img{
+
+    width:50px;
+    height:50px;
+    padding-top:9px;
+
+}
 .banner p{
-    margin: 0 auto;
+    height:50px;
     font-size: 50px;
+    margin:0px 5px;
+    padding: 0px;
+
 }
 #main{
     display:flex;
@@ -146,21 +158,7 @@ a:hover{
 
 }
 
-.clone-service{
-    margin :5px;
-    height: 100%;
-    border-radius: 10px;
-    width:620px;
-    background-color: blue;
-}
 
-.clone-incruitment{
-    margin :10px;
-    height: 100%;
-    border-radius: 10px;
-    width:620px;
-    background-color: yellow;
-}
 
 .container{
     margin:10px;
@@ -174,7 +172,6 @@ a:hover{
         flex-wrap: wrap;
         display: flex;
         flex-direction: row;
-        background-color: yellow;
     }
     .small-card{
         width:300px;
@@ -199,15 +196,18 @@ a:hover{
     
     .small-card-container{
         width:350px;
+        margin:10px;
         flex-wrap: wrap;
         display: flex;
         flex-direction: row;
-        background-color: yellow;
     }
 
 }
 
 @media screen and (max-width:799px) and (min-width:500px){
+      
+    
+    
     .first-floor{
         width:500px;
         display: flex;
@@ -246,7 +246,6 @@ a:hover{
         display: flex;
         
         flex-direction: column;
-        background-color: yellow;
         margin: 0 auto;
     }
 
@@ -311,18 +310,17 @@ a:hover{
         display: flex;
         
         flex-direction: column;
-        background-color: yellow;
         margin: 0 auto;
     }
 
     .card{
 
-        margin: 0 auto;
+        margin: 10px ;
 
     }
     .small-card{
 
-        margin: 0 auto;
+        margin: 10px;
 
     }
 
@@ -330,7 +328,7 @@ a:hover{
         display: none;
     }
 
-    .responsibility{
+    .responsibility{        
         display: none;
     }
     .tech_and_service{
@@ -418,3 +416,97 @@ a:hover{
 
 
 
+
+.clone-incruitment .incruitment-btn{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size : 16px;
+    border-radius: 30px;
+    width:200px;
+    height:60px;
+    background-color: black;
+    color:white;
+}
+
+.clone-service .service-btn{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size : 16px;
+    border-radius: 30px;
+    width:200px;
+    height:60px;
+    background-color: black;
+    color:white;
+}
+
+
+.clone-service{
+    margin :10px;
+    height: 100%;
+    border-radius: 10px;
+    width:620px;
+    background-color: blue;
+    padding : 20px;
+    margin-top: 60px;
+    font-size: 30px;
+}
+
+.clone-incruitment{
+    margin :10px;
+    height: 100%;
+    border-radius: 10px;
+    width:620px;
+    background-color: yellow;
+    padding : 20px;
+    margin-top: 60px;
+    font-size: 30px;
+}
+
+.bottom-btn{
+
+    
+
+}
+
+.bottom-btn{
+
+    margin : 0 auto;
+    margin-top : 70px;
+    width:250px;
+    text-align: center;
+    background-color: gray;
+    border-radius: 50px;
+
+}
+
+.footer-upper{
+    
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: blueviolet;
+    margin: 0 auto;
+    margin-top: 30px;
+    width : 1200px;
+}
+
+.footer-lower{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: palevioletred;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width : 1200px;
+}
+
+
+
+.li-container{
+    list-style:none;
+
+}
