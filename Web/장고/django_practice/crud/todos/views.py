@@ -18,9 +18,6 @@ def create(request):
     content = request.GET.get("content_")
     priority = request.GET.get("priority_")
     Todo.objects.create(content=content)
-
-    
-
     return redirect('todos:index')
 
 
