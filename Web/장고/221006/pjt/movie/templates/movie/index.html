@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>영화 정보 제공 서비스</h1>
+    <br>
+    <a href="{% url 'movie:create' %}">글 쓰기</a>
+    <table>
+        <thead>
+            <tr>
+                <td>title</td>
+                <td>review</td>
+                <td>시간(분)</td>
+                <td>삭제</td>
+                <td>update</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for movie in movies %}
+                <tr>
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.summary}}</td>
+                    <td>{{movie.running_time}}</td>
+                    <td>
+                        <a href="{% url 'movie:delete' movie.pk %}">del</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'movie:update' movie.pk %}">update</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
