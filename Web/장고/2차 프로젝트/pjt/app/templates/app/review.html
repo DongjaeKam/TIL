@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+
+  <h1>Reviews</h1>
+
+  <table style="border : 1px solid black; border-collapse : collapse;">
+    <thead>
+        <tr>
+          <td>영화제목</td>
+          <td>리뷰제목</td>
+          <td>평점</td>
+          <td>수정</td>
+          <td>삭제</td>
+        </tr>
+    </thead>
+    <tbody>
+
+      {% for review in reviews %}
+
+      <tr>
+        <td>{{ review.movie_title }}</td> 
+        <td>{{ review.review_title }}</td>  
+        <td>{{ review.grade }}</td>
+        <td><a href="{% url 'app:update' review.pk %}">수정</a></td>
+        <td><a href="{% url 'app:delete' review.pk %}">삭제</a></td> 
+      </tr>
+
+      {% endfor %}
+           
+    </tbody>
+</table>
+
+
+
+
+
+  <table> 
+ 
+  </table>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

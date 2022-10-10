@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body %} 
+<form action="{% url 'app:update' pk %}" method="POST">
+    {% csrf_token %}
+    {{ review_form.as_p }}
+    <!-- <label for="title">제목 : </label>
+    <input type="text" name="title" id="title" required>
+    <label for="content">내용 : </label>
+    <textarea name="content" id="content" cols="30" rows="10" required></textarea> -->
+    <input type="submit" value="리뷰 등록">
+  </form>
+
+
+{% endblock %}
