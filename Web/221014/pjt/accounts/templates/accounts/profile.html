@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ user }} 프로필</h1>
+
+<p> ID : {{ user.username }} </p>
+<p> 이름 : {{ user.last_name }}{{ user.first_name }} </p>
+
+
+{% endblock content %}

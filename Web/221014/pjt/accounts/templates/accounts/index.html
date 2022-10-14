@@ -1,0 +1,47 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+{% if user.username == 'admin' %}
+
+    <table>
+        <thead>
+            <tr>
+                <td>No.</td>
+                <td>ID</td>
+                <td>Email</td>
+                <td>이름</td>
+                <td>삭제</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        {% for user in users %}
+        
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username}}</td>
+                    <td>{{ user.email}}</td>
+                    <td>{{user.last_name}}{{user.first_name}}</td>
+                    <td><a href="{% url 'accounts:delete' user.pk %}">del</a></td>
+                </tr>
+            
+        {% endfor %}
+        
+        </tbody>
+    </table>
+
+    
+
+
+{% else %}
+
+    <P>관리자 아니면 못 봐요!</P>
+
+{% endif %}
+
+
+{% endblock content %}
