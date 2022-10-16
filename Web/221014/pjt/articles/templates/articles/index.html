@@ -1,7 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
     <a href="{% url 'articles:index' %}">index</a>
-    <a href=""></a>
-    <a href=""></a>
-    <a href=""></a>
-    <a href=""></a>
+    <a href="{% url 'articles:create' %}">create</a>
+    <a href="{% url 'articles:read' %}">read</a>
+    <a href="{% url 'articles:update' %}">update</a>
+    <a href="{% url 'articles:delete' 1 %}">delele</a>
+
+    
+
+
 {% endblock content %}
