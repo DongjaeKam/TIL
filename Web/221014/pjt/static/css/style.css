@@ -1,5 +1,37 @@
+a:link{
+    text-decoration: none;
+}
+.nav-item a{
+
+    color:black;
+
+}
+
+
+
+
+
+
 .login-comment{
 
     margin : 5px;
+
+}
+.card{
+    
+    padding : 5px;
+    overflow : hidden;
+    margin : 5px;
+}
+
+
+.card img{
+    max-height: 200px;
+    width: auto;
+}
+
+.card:hover {
+
+    transform: scale(1.1);
 
 }

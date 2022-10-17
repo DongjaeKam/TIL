@@ -18,9 +18,11 @@ def index(request):
 
 def create(request):
     if request.method == 'POST':
-        article_form = ArticleForm(request.POST)
+        article_form = ArticleForm(request.POST,request.FILES)
         if article_form.is_valid():
-            article_form.save()
+            article = article_form.save()
+            article.username = request.user.username
+            article.save()
             return redirect('articles:index')
     else: 
         article_form = ArticleForm()
@@ -30,11 +32,15 @@ def create(request):
     return render(request, 'articles/create.html', context=context)
 
 
-def read(request):
+def reviews(request):
+    articles = article.objects.all()
 
+    context = {
 
+        'articles':articles,
+    }
 
-    return render(request,'articles/index.html')
+    return render(request,'articles/reviews.html',context)
 
 
 

@@ -29,7 +29,7 @@ def signup(request):
             user = form.save() 
             auth_login(request, user)
             print(f'user : {user.id}') 
-            return redirect('accounts:index')
+            return redirect('articles:index')
     else:   
         form = CustomUserCreationForm()
     context = {
@@ -42,7 +42,7 @@ def login(request):
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             auth_login(request, form.get_user())
-            return redirect(request.GET.get('next') or 'accounts:index')
+            return redirect(request.GET.get('next') or 'articles:index')
     else:
         form = AuthenticationForm()
     context = {
