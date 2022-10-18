@@ -1,8 +1,10 @@
+from xml.etree.ElementTree import Comment
 from django.shortcuts import render,redirect
 from . import forms
 from . import models
-from .models import article
-from .forms import ArticleForm
+from .models import Article, Comment
+from .forms import ArticleForm ,CommentForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -15,7 +17,7 @@ def index(request):
 
 
 
-
+@login_required
 def create(request):
     if request.method == 'POST':
         article_form = ArticleForm(request.POST,request.FILES)
@@ -33,7 +35,7 @@ def create(request):
 
 
 def reviews(request):
-    articles = article.objects.all()
+    articles = Article.objects.all()
 
     context = {
 
@@ -54,6 +56,33 @@ def update(request):
 
 def delete(request,user_pk):
 
-
+    Article.objects.get(pk=user_pk).delete()
 
     return render(request,'articles/index.html')
+
+
+def detail(request,user_pk):
+
+    article = Article.objects.get(pk=user_pk)
+    comment_form = CommentForm()
+    # template에 객체 전달
+    print(len(article.comment_set.all()))
+    context = {
+        'article': article,
+        'comments': article.comment_set.all(),
+        'comment_form': comment_form,
+    }
+
+    return render(request,'articles/detail.html',context)
+
+@login_required
+def comment_create(request, pk):
+    article = Article.objects.get(pk=pk)
+    comment_form = CommentForm(request.POST)
+    if comment_form.is_valid():
+        comment = comment_form.save(commit=False)
+        comment.article = article
+        comment.username = request.user.username
+        comment.save()
+    
+    return redirect('articles:detail', article.pk)

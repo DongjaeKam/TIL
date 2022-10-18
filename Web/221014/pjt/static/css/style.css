@@ -7,11 +7,6 @@ a:link{
 
 }
 
-
-
-
-
-
 .login-comment{
 
     margin : 5px;
@@ -33,5 +28,21 @@ a:link{
 .card:hover {
 
     transform: scale(1.1);
+
+}
+
+.UserInfoInComment{
+
+    height: 20px;
+
+}
+
+.UserInfoInComment img{
+
+    height: 100%;
+    
+    
+
+
 
 }
