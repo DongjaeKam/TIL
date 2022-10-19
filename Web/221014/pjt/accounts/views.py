@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm , CustomUserChangeForm
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import get_user_model
+from articles.models import Article
+from accounts.models import User
+
 
 # Create your views here.
 
@@ -67,23 +70,39 @@ def delete(request,user_pk):
 
 def profile(request,user_pk):
 
-    print(user_pk)
 
 
-    user = get_user_model().objects.get(pk=user_pk)
-
-    
-    context={
-
-        'User':user
-
-    }
-
-
-    return render(request,'accounts/profile.html')
+    return render(request)
 
 
 def personal_profile(request):
-    
-    return render(request,'accounts/profile.html')
 
+    articles = request.user.article_set.all()
+
+    context ={
+
+        'articles' : articles
+
+    }
+
+    return render(request,'accounts/profile.html',context)
+
+
+
+
+def edit_profile(request):
+
+    if request.method == "POST":
+        form = CustomUserChangeForm(request.POST,instance = request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('articles:profile')
+    else:
+        form = CustomUserChangeForm(instance = request.user)
+        print('hihihi')
+    
+    context = {
+        'form': form
+    }
+
+    return render(request,'accounts/edit_profile.html',context)

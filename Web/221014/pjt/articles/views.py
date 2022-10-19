@@ -22,8 +22,8 @@ def create(request):
     if request.method == 'POST':
         article_form = ArticleForm(request.POST,request.FILES)
         if article_form.is_valid():
-            article = article_form.save()
-            article.username = request.user.username
+            article = article_form.save(commit=False)
+            article.user = request.user
             article.save()
             return redirect('articles:index')
     else: 
@@ -81,8 +81,17 @@ def comment_create(request, pk):
     comment_form = CommentForm(request.POST)
     if comment_form.is_valid():
         comment = comment_form.save(commit=False)
+        comment.user = request.user
         comment.article = article
         comment.username = request.user.username
         comment.save()
     
     return redirect('articles:detail', article.pk)
+
+
+def edit_profile(request):
+
+
+
+
+    return render(request,'articles/detail.html')

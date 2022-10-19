@@ -1,10 +1,60 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <h1>{{ user }} 프로필</h1>
 
-<p> ID : {{ user.username }} </p>
-<p> 이름 : {{ user.last_name }}{{ user.first_name }} </p>
+<div class="container d-flex align-items-center">
+    <div class="container" style="width:300; height:300px; padding:30px; margin:0px;">
+        {% if user.profile_image  %}
+            <img src="{{user.profile_image.url}}" class="card-img-top"  style="width:auto; height:100%; border-radius: 50% ;" alt="" >
+        {% else %}
+            <img src="{% static 'images/blank_image.jpg' %}" class="card-img-top" style="width:auto; height:100%; border-radius: 50% ;" alt="">
+        {% endif %}
+    </div>
+
+    <div class="container" sytle="margin:0px;">
+        <div class="d-flex">
+            <p> {{ user.username }} </p>
+        </div>
+        <p> {{ user.last_name }}{{ user.first_name }} </p>
+        <p> comment </p>
+        <p> {{ user.email }} </p>
+        <a href="{% url 'accounts:edit_profile' %}">프로필 편집</a>
+    </div> 
+
+
+</div>
+
+<hr> 
+
+<div class="row" style="margin-top: 20px ;">
+
+    {% if articles %}
+
+        {% for article in articles %}
+            <div class="col-4">
+            {% if article.image  %}
+            <a href="{% url 'articles:detail' article.id %}">
+                <img src="{{article.image.url}}" class="card-img-top" alt="{{article.image}}" >
+            </a>    
+            
+            {% else %}
+            <a href="{% url 'articles:detail' article.id %}">
+                <img src="{% static 'images/blank_image.jpg' %}" class="card-img-top" alt="{{article.image}}">
+            </a>
+            {% endif %}
+            </div>
+        {% endfor %}
+
+    {% else %}
+
+        <p>아무 것도 없다.</p>
+
+    {% endif %}
+   </div>
+
+
 
 
 {% endblock content %}]

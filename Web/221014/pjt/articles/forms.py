@@ -20,7 +20,7 @@ class CommentForm(forms.ModelForm):
             'content': TextInput(attrs={
                 'class': "form-control",
                 'style': 'width: 100%; margin : 2px; ',
-                }),
+            }),
         }
 
 
