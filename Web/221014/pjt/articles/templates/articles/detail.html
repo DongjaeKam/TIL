@@ -16,28 +16,49 @@
     </div>
     <hr>
     <div class=" d-flex" style="height:30px;">
-        <a href="{% url 'accounts:personal_profile' %}" >                   
+        {% if article.user.profile_image %}
+        <a href="{% url 'accounts:my_profile' %}" >                   
+            <img src="{{ article.user.profile_image.url }}"
+            style="height:100%; width:auto; padding:2px; border-radius: 50%;" alt="">
+        </a>
+        {% else %}
+        <a href="{% url 'accounts:my_profile' %}" >                   
             <img src="{% static 'images/blank_image.jpg' %}"
             style="height:100%; width:auto; padding:2px; border-radius: 50%;" alt="">
         </a>
-    <p style="margin : 2px;">{{article.user.username}}</p>
+        {% endif %}
+        
+        
+        
+        
+        
+        <p style="margin : 2px;">{{article.user.username}}</p>
     </div>
     
     <!-- <p>Created at : {{article.created_at}}</p>
-    <p>Updated at : {{article.updated_at}}</p> -->
+    <p>Created at : {{article.created_at}}</p> -->
     <hr>
     <p>{{article.content}}</p>
 
     <hr>
-   
     
-        {% if user.is_authenticated %}
+    
+    
+
+    {% if user.is_authenticated %}
+    
+    
         <div class="card" style="padding:2px; height:180px;">
             <div class="card-body">
                 <div class=" d-flex" style="height:30px;">
-                    <a href="{% url 'accounts:personal_profile' %}" >                   
+                    <a href="{% url 'accounts:my_profile' %}" >                   
+                        {% if user.profile_image %}
+                        <img src="{{user.profile_image.url}}" 
+                        style="height:100%; width:auto; padding:2px; border-radius: 50%;" alt="">
+                        {% else %}
                         <img src="{% static 'images/blank_image.jpg' %}"
                         style="height:100%; width:auto; padding:2px; border-radius: 50%;" alt="">
+                        {% endif %}        
                     </a>
                     <p style="margin : 2px;">{{ user }}</p>
                 </div>
@@ -61,19 +82,30 @@
     <div class="card" style="padding:10px;">
 
         {% if comments %}
+
             {% for comment in comments %}
+
             <div class="d-flex" style="height: 30px; margin-top:2px;">
-                <img src="{% static 'images/blank_image.jpg' %}"
-                        style="height:100%; width:auto; padding:2px; border-radius: 50%;"   alt="">
+                 
+                <a href ="{% url 'accounts:profile' comment.user.username %}">
+                    {% if comment.user.profile_image %}
+                            <img src="{{comment.user.profile_image.url}}"
+                                style="height:100%; width:auto; padding:2px; border-radius: 50%;"   alt="">
+                    {% else %}
+                        <img src="{% static 'images/blank_image.jpg' %}"
+                                style="height:100%; width:auto; padding:2px; border-radius: 50%;"   alt="">
+                    {% endif %}
+                </a>
                     <p style="margin : 2px; height: 100%; width:auto; ">{{ comment.user.username }}</p>
                     <p style="margin: 2px; color: gray;">{{comment}}</p>
             </div>
             
             {% endfor %}
+        
         {% else %}
-        <div class="d-flex align-items-center justify-content-center" style="height: 30px; margin-top:2px;">
-            <p>댓글이 없습니다.</p>
-        </div>
+            <div class="d-flex align-items-center justify-content-center" style="height: 30px; margin-top:2px;">
+                <p>댓글이 없습니다.</p>
+            </div>
         {% endif %}
     </div>
 

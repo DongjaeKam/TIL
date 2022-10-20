@@ -37,7 +37,7 @@
           </li>
         </ul>
           {% if user.is_authenticated %}
-            <p class="login-comment" ><a href="{% url 'accounts:personal_profile' %}">{{ user }}</a> 님 로그인 했음</p>
+            <p class="login-comment" ><a href="{% url 'accounts:my_profile' %}">{{ user }}</a> 님 로그인 했음</p>
             <form action="{% url 'accounts:logout' %}" methon="POST">
               {% csrf_token %}
               <input type="submit" value = "logout">

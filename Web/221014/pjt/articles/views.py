@@ -89,9 +89,3 @@ def comment_create(request, pk):
     return redirect('articles:detail', article.pk)
 
 
-def edit_profile(request):
-
-
-
-
-    return render(request,'articles/detail.html')

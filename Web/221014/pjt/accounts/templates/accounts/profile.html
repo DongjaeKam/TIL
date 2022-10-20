@@ -2,29 +2,29 @@
 {% load static %}
 
 {% block content %}
-<h1>{{ user }} 프로필</h1>
 
-<div class="container d-flex align-items-center">
-    <div class="container" style="width:300; height:300px; padding:30px; margin:0px;">
-        {% if user.profile_image  %}
-            <img src="{{user.profile_image.url}}" class="card-img-top"  style="width:auto; height:100%; border-radius: 50% ;" alt="" >
-        {% else %}
-            <img src="{% static 'images/blank_image.jpg' %}" class="card-img-top" style="width:auto; height:100%; border-radius: 50% ;" alt="">
-        {% endif %}
-    </div>
+    <h1>{{ User }} 프로필</h1>
 
-    <div class="container" sytle="margin:0px;">
-        <div class="d-flex">
-            <p> {{ user.username }} </p>
+    <div class="d-flex align-items-center" style="margin:50px;">
+        <div style="width:300; height:300px; padding:30px; margin:10px;">
+            {% if User.profile_image  %}
+                <img src="{{User.profile_image.url}}" class="card-img-top"  style="width:auto; height:100%; border-radius: 50% ;" alt="" >
+            {% else %}
+                <img src="{% static 'images/blank_image.jpg' %}" class="card-img-top" style="width:auto; height:100%; border-radius: 50% ;" alt="">
+            {% endif %}
         </div>
-        <p> {{ user.last_name }}{{ user.first_name }} </p>
-        <p> comment </p>
-        <p> {{ user.email }} </p>
-        <a href="{% url 'accounts:edit_profile' %}">프로필 편집</a>
-    </div> 
 
+        <div sytle="margin:0px;" style="width:300px;">
+            <div class="d-flex">
+                <p> {{ User }} </p>
+            </div>
+            <p> {{ User.last_name }}{{ User.first_name }} </p>
+            <p> comment </p>
+            <p> {{ User.email }} </p>
+            <a href="{% url 'accounts:edit_profile' %}">프로필 편집</a>
+        </div> 
 
-</div>
+    </div>
 
 <hr> 
 

@@ -25,11 +25,18 @@ def index(request):
     return render(request,'accounts/index.html',context)
 
 
+
+
+
+
 def signup(request):
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
+        print("request.FILES: ",request.FILES['profile_image'])
+        form = CustomUserCreationForm(request.POST,request.FILES)
         if form.is_valid():
-            user = form.save() 
+            user = form.save()
+            user.profile_image =request.FILES['profile_image']
+            user.save()
             auth_login(request, user)
             print(f'user : {user.id}') 
             return redirect('articles:index')
@@ -68,20 +75,32 @@ def delete(request,user_pk):
     return redirect('accounts:index')
 
 
-def profile(request,user_pk):
+def profile(request,username):
+
+    if username == request.user.username:
+        return redirect('account:my_profile')
 
 
+    user = get_user_model().objects.get(username=username)
+    articles = user.article_set.all()
+    context ={
 
-    return render(request)
+        'articles' : articles,
+        'User'  : user,
+
+    }
+
+    return render(request,'accounts/profile.html',context)
 
 
-def personal_profile(request):
+def my_profile(request):
 
     articles = request.user.article_set.all()
 
     context ={
 
-        'articles' : articles
+        'articles' : articles,
+        'User'  : request.user,
 
     }
 
@@ -92,15 +111,15 @@ def personal_profile(request):
 
 def edit_profile(request):
 
-    if request.method == "POST":
-        form = CustomUserChangeForm(request.POST,instance = request.user)
+    if request.method == 'POST':
+        form = CustomUserChangeForm(request.POST ,instance=request.user)
         if form.is_valid():
-            form.save()
-            return redirect('articles:profile')
+            user = form.save()
+            user.profile_image =request.FILES['profile_image']
+            user.save()
+            return redirect('accounts:my_profile')
     else:
-        form = CustomUserChangeForm(instance = request.user)
-        print('hihihi')
-    
+        form = CustomUserChangeForm(instance=request.user)
     context = {
         'form': form
     }
