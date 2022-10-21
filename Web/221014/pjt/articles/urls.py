@@ -13,6 +13,7 @@ urlpatterns = [
    path('delete/<int:user_pk>', views.delete ,name='delete'),
    path('<int:user_pk>', views.index ,name='profile'),
    path('profile/', views.index ,name='personal_profile'),
-   path('detail/<int:user_pk>', views.detail ,name='detail'),
-   path('<int:pk>/comments/', views.comment_create, name='comment_create'),
+   path('detail/<int:article_pk>', views.detail ,name='detail'),
+   path('comments/<int:pk>/', views.comment_create, name='comment_create'),
+   path('like/<int:article_pk>/', views.like, name='like'),
 ]

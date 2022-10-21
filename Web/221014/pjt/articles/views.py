@@ -2,7 +2,8 @@ from xml.etree.ElementTree import Comment
 from django.shortcuts import render,redirect
 from . import forms
 from . import models
-from .models import Article, Comment
+from .models import Article, Comment,Like
+from accounts.models import User
 from .forms import ArticleForm ,CommentForm
 from django.contrib.auth.decorators import login_required
 
@@ -61,23 +62,24 @@ def delete(request,user_pk):
     return render(request,'articles/index.html')
 
 
-def detail(request,user_pk):
+def detail(request,article_pk):
 
-    article = Article.objects.get(pk=user_pk)
+    article = Article.objects.get(pk=article_pk)
     comment_form = CommentForm()
     # template에 객체 전달
-    print(len(article.comment_set.all()))
     context = {
         'article': article,
         'comments': article.comment_set.all(),
         'comment_form': comment_form,
+        'like': Like.objects.filter(article = article , user = request.user),
+        'like_cnt': len(Like.objects.all()) 
     }
 
     return render(request,'articles/detail.html',context)
 
 @login_required
-def comment_create(request, pk):
-    article = Article.objects.get(pk=pk)
+def comment_create(request, article_pk):
+    article = Article.objects.get(pk=article_pk)
     comment_form = CommentForm(request.POST)
     if comment_form.is_valid():
         comment = comment_form.save(commit=False)
@@ -89,3 +91,16 @@ def comment_create(request, pk):
     return redirect('articles:detail', article.pk)
 
 
+
+def like(request,article_pk):
+
+    article = Article.objects.get(pk = article_pk )
+    
+    like = Like.objects.filter(article = article, user = request.user)
+
+    if like :
+        like.delete()
+    else:
+        Like.objects.create(article = article, user = request.user )
+
+    return  redirect('articles:detail', article_pk)

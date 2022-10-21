@@ -5,7 +5,26 @@
 
 
 
-    <h2>{{article.title}}</h2>
+    <div class = "d-flex align-items-center justify-content-between" style="padding : 5px;">
+        <p style="font-size: 2rem;;">{{article.title}}</p>
+        
+        
+        <div class = "d-flex align-items-center justify-content-between" >
+            
+            <div style="margin-bottom:14px;">
+            {% if like %} 
+                <a href = "{% url 'articles:like' article.pk %}" style="font-size: 1.5rem;" >♥</a>
+            {% else %}
+                <a href = "{% url 'articles:like' article.pk %}" style="font-size: 1.5rem;" >♡</a>
+            {% endif %}
+            </div>
+            {% if like_cnt == 1 %}        
+                <p>{{ like_cnt }} LIKE </p>
+            {% else %}
+                <p>{{ like_cnt }} LIKES </p>
+            {% endif %}
+        </div>
+    </div>
     <hr>
     <div class="img_container"  style="margin:5px;">
         {% if article.image %}
