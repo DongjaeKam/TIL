@@ -21,14 +21,18 @@ def index(request):
 @login_required
 def create(request):
     if request.method == 'POST':
+
         article_form = ArticleForm(request.POST,request.FILES)
         if article_form.is_valid():
-            article = article_form.save(commit=False)
-            article.user = request.user
-            article.save()
+            image = request.FILES['image']
+            user = request.user
+            title = request.POST.get('title')
+            content = request.POST.get('content')
+            Article.objects.create(image= image, user = user , title=title, content=content)
             return redirect('articles:index')
     else: 
         article_form = ArticleForm()
+
     context = {
         'article_form': article_form
     }
