@@ -78,7 +78,7 @@ def delete(request,user_pk):
 def profile(request,username):
 
     if username == request.user.username:
-        return redirect('account:my_profile')
+        return redirect('accounts:my_profile')
 
 
     user = get_user_model().objects.get(username=username)
@@ -114,14 +114,14 @@ def edit_profile(request):
     if request.method == 'POST':
         form = CustomUserChangeForm(request.POST ,instance=request.user)
         if form.is_valid():
-            user = form.save()
+            user = form.save()  
             user.profile_image =request.FILES['profile_image']
             user.save()
             return redirect('accounts:my_profile')
     else:
         form = CustomUserChangeForm(instance=request.user)
     context = {
-        'form': form
+        'form': form,
     }
 
     return render(request,'accounts/edit_profile.html',context)

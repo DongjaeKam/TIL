@@ -14,6 +14,6 @@ urlpatterns = [
    path('<int:user_pk>', views.index ,name='profile'),
    path('profile/', views.index ,name='personal_profile'),
    path('detail/<int:article_pk>', views.detail ,name='detail'),
-   path('comments/<int:pk>/', views.comment_create, name='comment_create'),
+   path('comments/<int:article_pk>/', views.comment_create, name='comment_create'),
    path('like/<int:article_pk>/', views.like, name='like'),
 ]

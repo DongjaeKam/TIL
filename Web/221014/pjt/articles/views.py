@@ -56,7 +56,7 @@ def update(request):
 
 
     return render(request,'articles/index.html')
-
+ 
 
 
 def delete(request,user_pk):
@@ -76,7 +76,7 @@ def detail(request,article_pk):
         'comments': article.comment_set.all(),
         'comment_form': comment_form,
         'like': Like.objects.filter(article = article , user = request.user),
-        'like_cnt': len(Like.objects.all()) 
+        'like_cnt': len(Like.objects.filter(article = article)) 
     }
 
     return render(request,'articles/detail.html',context)
