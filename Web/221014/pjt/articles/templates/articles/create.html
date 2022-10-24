@@ -15,16 +15,43 @@
       <label style = 'margin-right:5px;' for="content">content</label>
       <input type="text" style="width:200px;" name="content">
     </div>
-    
-    <div class ='d-flex' style = 'margin:10px; margin-right:5px;'>
-      <label style = 'margin-right:5px;' for="image">image</label>
-      <input type="file" style="width:200px;" name="image">
+    <div style = 'margin:10px; margin-right:5px;'>
+      <div class="img_input">
+        <p>image</p>
+      </div>
+      <img style="width:200px; height:200px;" id="preview-image" src="https://dummyimage.com/500x500/ffffff/000000.png&text=preview+image">
+      <input style="display: block;" type="file" id="input-image" name="image">
     </div>
     <input type="submit"  style="width:100px;" value="글쓰기">
     </div>
 
+   
+
 </form>
 
-<img src="{{article_form.image.url}}" alt="">
+
+
+<script>
+  function readImage(input) {
+    // 인풋 태그에 파일이 있는 경우
+    if(input.files && input.files[0]) {
+        // 이미지 파일인지 검사 (생략)
+        // FileReader 인스턴스 생성
+        const reader = new FileReader()
+        // 이미지가 로드가 된 경우
+        reader.onload = e => {
+            const previewImage = document.getElementById("preview-image")
+            previewImage.src = e.target.result
+        }
+        // reader가 이미지 읽도록 하기
+        reader.readAsDataURL(input.files[0])
+    }
+}
+// input file에 change 이벤트 부여
+const inputImage = document.getElementById("input-image")
+inputImage.addEventListener("change", e => {
+    readImage(e.target)
+})
+</script>
 
 {% endblock content %}
