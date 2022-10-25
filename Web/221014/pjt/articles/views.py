@@ -49,11 +49,30 @@ def reviews(request):
 
 
 
-def update(request):
+def update(request,article_pk):
 
+    if request.method == 'POST':
+        article = Article.objects.get(pk=article_pk)
+        article.title = request.POST['title']
+        article.content = request.POST['content']
+        article.updated_at = models.DateTimeField(auto_now=True)
+        return redirect('accounts:my_profile')
+    else:
+        article = Article.objects.get(pk=article_pk)
+        title = article.title
+        content = article.content
+        image = article.image.url
+        
 
+    context ={
 
-    return render(request,'articles/index.html')
+        'title': title,
+        'content': content,
+        'image' : image,
+
+    }
+
+    return render(request,'articles/update.html')
  
 
 

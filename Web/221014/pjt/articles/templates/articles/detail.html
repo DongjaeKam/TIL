@@ -8,8 +8,11 @@
     <div class = "d-flex align-items-center justify-content-between" style="padding : 5px;">
         <p style="font-size: 2rem;">{{article.title}}</p>
         {% if article.user == request.user %}
+        <div class="d-flex justify-content-between" style="width:100px; padding:10px;">
             <a href="{% url 'articles:delete' article.pk %}">delete</a>
-        {% endif%}
+            <a style="margin-left:5px;" href="{% url 'articles:update' article.pk %}">update</a>
+        </div>
+            {% endif%}
     </div>
     <hr>
     <div class="img_container"  style="margin:5px;">
