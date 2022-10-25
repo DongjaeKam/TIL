@@ -4,8 +4,11 @@ from . import forms
 from . import models
 from .models import Article, Comment,Like
 from accounts.models import User
-from .forms import ArticleForm ,CommentForm
+from .forms import ArticleForm, ArticleUpdateForm ,CommentForm
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+
+
 
 # Create your views here.
 
@@ -49,30 +52,64 @@ def reviews(request):
 
 
 
-def update(request,article_pk):
 
-    if request.method == 'POST':
-        article = Article.objects.get(pk=article_pk)
-        article.title = request.POST['title']
-        article.content = request.POST['content']
-        article.updated_at = models.DateTimeField(auto_now=True)
-        return redirect('accounts:my_profile')
+
+@csrf_exempt
+def update(request, article_pk):
+
+    article = Article.objects.get(pk = article_pk)
+
+
+    if request.method == 'POST':        
+        image = request.FILES['image']
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+
+        article.image = image
+        article.title = title
+        article.content = content
+        article.save()        
+
+        return redirect('articles:reviews')
+    
     else:
-        article = Article.objects.get(pk=article_pk)
-        title = article.title
-        content = article.content
-        image = article.image.url
+        article_form = ArticleUpdateForm()
+    
         
-
-    context ={
-
-        'title': title,
-        'content': content,
-        'image' : image,
-
+    context = {
+        'article_form':article_form,
     }
 
-    return render(request,'articles/update.html')
+    return render(request,'articles/update.html',context)
+
+
+
+
+
+# def update(request,article_pk):
+
+#     if request.method == 'POST':
+#         article = Article.objects.get(pk=article_pk)
+#         article.title = request.POST['title']
+#         article.content = request.POST['content']
+#         article.updated_at = models.DateTimeField(auto_now=True)
+#         return redirect('accounts:my_profile')
+#     else:
+#         article = Article.objects.get(pk=article_pk)
+#         title = article.title
+#         content = article.content
+#         image = article.image.url
+        
+
+#     context ={
+
+#         'title': title,
+#         'content': content,
+#         'image' : image,
+
+#     }
+
+#     return render(request,'articles/update.html')
  
 
 
