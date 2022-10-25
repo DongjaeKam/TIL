@@ -6,7 +6,10 @@
 
 
     <div class = "d-flex align-items-center justify-content-between" style="padding : 5px;">
-        <p style="font-size: 2rem;;">{{article.title}}</p>
+        <p style="font-size: 2rem;">{{article.title}}</p>
+        {% if article.user == request.user %}
+            <a href="{% url 'articles:delete' article.pk %}">delete</a>
+        {% endif%}
     </div>
     <hr>
     <div class="img_container"  style="margin:5px;">

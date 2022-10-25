@@ -13,10 +13,8 @@ def index(request):
 
     
 
-
+    
     return render(request,'articles/index.html')
-
-
 
 @login_required
 def create(request):
@@ -59,17 +57,18 @@ def update(request):
  
 
 
-def delete(request,user_pk):
+def delete(request,article_pk):
 
-    Article.objects.get(pk=user_pk).delete()
+    Article.objects.get(pk=article_pk).delete()
 
-    return render(request,'articles/index.html')
+    return redirect('accounts:my_profile')
 
 
 def detail(request,article_pk):
 
     article = Article.objects.get(pk=article_pk)
     comment_form = CommentForm()
+    
     # template에 객체 전달
     context = {
         'article': article,

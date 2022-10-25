@@ -1,3 +1,4 @@
+from genericpath import exists
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm , CustomUserChangeForm
 from django.contrib.auth import login as auth_login
@@ -87,6 +88,8 @@ def profile(request,username):
 
         'articles' : articles,
         'User'  : user,
+        'cnt_followings' :len(user.followings.all()),
+        'cnt_follwers' : len(user.followers.all()),
 
     }
 
@@ -95,13 +98,25 @@ def profile(request,username):
 
 def my_profile(request):
 
+
+    user = User.objects.get(username = 'kdj1994') # 아이디가 kdj1994 인놈
+
+    
+    # request.user.followings.all() # 로그인 한놈이 팔로우 하는 놈들을 전부다 나오게
+    
+    if user in request.user.followings.all(): # 로그인 한놈이 팔로우 하는 놈 중에 kdj1994가 있냐?
+        print("있다.")
+    else:
+        print("없다.")
+
     articles = request.user.article_set.all()
 
     context ={
 
         'articles' : articles,
         'User'  : request.user,
-
+        'cnt_followings' :len(request.user.followings.all()),
+        'cnt_follwers' : len(request.user.followers.all()),
     }
 
     return render(request,'accounts/profile.html',context)

@@ -15,8 +15,10 @@
         </div>
 
         <div sytle="margin:0px;" style="width:300px;">
-            <div class="d-flex">
+            <div class="d-flex flex-column">
                 <p> {{ User }} </p>
+                <p> followings : {{ cnt_followings }} </p>
+                <p> followers : {{ cnt_follwers }} </p>
             </div>
             <p> {{ User.last_name }}{{ User.first_name }} </p>
             <p> comment </p>
@@ -36,7 +38,7 @@
             <div class="col-4">
             {% if article.image  %}
             <a href="{% url 'articles:detail' article.id %}">
-                <img src="{{article.image.url}}" class="card-img-top" alt="{{article.image}}" >
+                <img style="border:1px solid gray; margin : 10px;" src="{{article.image.url}}" class="card-img-top" alt="{{article.image}}" >
             </a>    
             
             {% else %}
