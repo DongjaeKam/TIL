@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>클릭</button>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const body = document.querySelector('body')
+    const div =document.createElement('div')
+    alert(body.childElementCount)
+    const title = document.createElement('h1')
+    title.innerText = 'AJAX'
+    // body.appendChild(title)
+
+    const button = document.querySelector('button')
+    // 버튼을 클릭하면, 함수를 실행해줘
+    button.addEventListener('click', function () {
+      const URL = 'https://jsonplaceholder.typicode.com/todos/1'
+      
+      if( body.childElementCount == 3){
+        axios.get(URL)
+        .then(response => {
+          // 성공해서 받은 응답 객체를 활용한 조작!!
+          const h2 = document.createElement('h2')
+          h2.innerText = response.data.title
+          const p = document.createElement('p')
+          p.innerText = response.data.userId
+          div.appendChild(h2)
+          div.appendChild(p)
+          body.appendChild(div)
+        })
+        .catch(err => console.log(`${err}!!!`))
+      }
+      else{
+        body.removeChild(div)
+        div.removeChild(h2)
+        div.removeChild(p2)
+      }
+      
+    })
+  </script>
+</body>
+
+</html>
