@@ -5,11 +5,11 @@
 
     <div class = "d-flex align-items-center justify-content-between" style="padding : 5px;">
         <p style="font-size: 2rem;">{{article.title}}</p>
+
         {% if article.user == request.user %}
             
             <a href="javascript:void(0);" onclick="deleteArticle();">delete</a>
       
-            
             <script>
                 
                 function deleteArticle(){
@@ -24,6 +24,7 @@
                 }
 
             </script>
+            
         {% endif %}
     </div>
     <hr>
