@@ -2,9 +2,23 @@
 {% load static %}
 
 {% block content %}
-    <a href="{% url 'articles:index' %}">index</a>
-    <a href="{% url 'articles:create' %}">create</a>
-    <a href="{% url 'articles:reviews' %}">reviews</a>
-    <a href="{% url 'articles:update' %}">update</a>
-    <a href="{% url 'articles:delete' 1 %}">delele</a>
+
+    <div id="articles-main-scroll" style="overflow:visible;">
+
+        <script>
+
+           main_scroll = document.querySelector("articles-main-scroll")
+        
+           img = document.createElement('img')
+           img.setAttribute('href','https://dummyimage.com/600x400/000/fff') 
+
+         
+
+           for(let i = 0;i < 20 ;i++)
+            main_scroll.appendChild(img)
+
+        </script>
+
+    </div>    
+
 {% endblock content %}
