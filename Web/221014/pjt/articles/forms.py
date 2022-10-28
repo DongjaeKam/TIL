@@ -24,12 +24,6 @@ class CommentForm(forms.ModelForm):
         }
 
 
-class ArticleUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Article
-        fields = [ 'title' , 'content','image' ]
-
-
 
 # class UserInfoForm(ModelForm):
 #     class Meta:

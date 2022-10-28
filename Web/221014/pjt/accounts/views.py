@@ -76,9 +76,6 @@ def delete(request,user_pk):
     return redirect('accounts:index')
 
 
-
-
-
 def profile(request,username):
 
     if username == request.user.username:
@@ -143,5 +140,3 @@ def edit_profile(request):
     }
 
     return render(request,'accounts/edit_profile.html',context)
-
-
