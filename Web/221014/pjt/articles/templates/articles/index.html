@@ -3,22 +3,28 @@
 
 {% block content %}
 
-    <div id="articles-main-scroll" style="overflow:visible;">
-
-        <script>
-
-           main_scroll = document.querySelector("articles-main-scroll")
-        
-           img = document.createElement('img')
-           img.setAttribute('href','https://dummyimage.com/600x400/000/fff') 
-
-         
-
-           for(let i = 0;i < 20 ;i++)
-            main_scroll.appendChild(img)
-
-        </script>
-
+    <div class="container d-flex flex-column" id="articles-main-scroll" style="height:300px; overflow-y:scroll; overflow-y:hidden;">
+       <img src="https://dummyimage.com/600x400/000/fff" alt="">
+       <img src="https://dummyimage.com/600x400/000/fff" alt="">
+       <img src="https://dummyimage.com/600x400/000/fff" alt="">
+       <img src="https://dummyimage.com/600x400/000/fff" alt="">
+       <img src="https://dummyimage.com/600x400/000/fff" alt="">
+       <img src="https://dummyimage.com/600x400/000/fff" alt="">
     </div>    
+
+    <script>
+        main_scroll = document.querySelector("#articles-main-scroll")
+        p = document.createElement('p')
+        p.innertext ='hey'
+
+        // main_scroll.setAttribute('background-color','red')
+        // = document.createElement('img')
+        // img.setAttribute('href','https://dummyimage.com/600x400/000/fff') 
+
+        for(let i = 0;i < 20 ;i++)
+         main_scroll.appendChild(p)
+
+     </script>
+
 
 {% endblock content %}
