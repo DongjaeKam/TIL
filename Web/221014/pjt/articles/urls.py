@@ -15,5 +15,6 @@ urlpatterns = [
    path('profile/', views.index ,name='personal_profile'),
    path('detail/<int:article_pk>', views.detail ,name='detail'),
    path('comments/<int:article_pk>/', views.comment_create, name='comment_create'),
-   path('like/<int:article_pk>/', views.like, name='like'),
+   path('reviews_like/<int:article_pk>/', views.reviews_like, name='reviews_like'),
+   path('main_like/<int:article_pk>/', views.main_like, name='main_like'),
 ]

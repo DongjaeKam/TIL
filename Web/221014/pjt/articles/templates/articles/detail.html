@@ -55,9 +55,9 @@
         <div class = "d-flex align-items-center justify-content-between" style="width:80px;" >            
             <div style="margin-bottom:5px; ">
             {% if like %} 
-                <a href = "{% url 'articles:like' article.pk %}" style="font-size: 1.5rem;" >♥</a>
+                <a href = "{% url 'articles:reviews_like' article.pk %}" style="font-size: 1.5rem;" >♥</a>
             {% else %}
-                <a href = "{% url 'articles:like' article.pk %}" style="font-size: 1.5rem;" >♡</a>
+                <a href = "{% url 'articles:reviews_like' article.pk %}" style="font-size: 1.5rem;" >♡</a>
             {% endif %}
             </div>
             <div style = 'margin-top:14px; width:70px'>

@@ -10,23 +10,52 @@
         <div class="d-flex flex-column align-items-center justify-content-center " style="padding:10px;width:800px; background-color:yellow;">
             
             <div class = "user-info d-flex align-items-center " style="width:100%;padding-left:30px; padding-right: 30px; padding-bottom:5px;">
-                {{ user }}
+                {{ article.user.username }}
             </div>
 
             <div style="width:800px;" >
-                <img src="https://dummyimage.com/600x600/000/fff" alt="" style="width:700px; height:700px; margin-top:10px; margin-bottom:10px; margin-left:50px; margin-right:50px;" >
+                <img src="{{ article.image.url }}" alt="" style="width:700px; height:700px; margin-top:10px; margin-bottom:10px; margin-left:50px; margin-right:50px;" >
             </div>
             <div class="user_action d-flex align-items-center justify-content-between" style ="width:800px; padding-left:30px; padding-right:30px;">
                 <p style="padding-top:9px;">instagram</p>
                 <div class="article-icons">
-                    <img src="https://dummyimage.com/50x50/f0f/fff" alt="">
-                    <img src="https://dummyimage.com/50x50/0f0/f0f" alt="">
-                    <img src="https://dummyimage.com/50x50/f00/0ff" alt="">
+                    <a href ="#">
+                        <img src="{% static 'images/icons/suit-heart.svg' %}" alt="">
+                    </a>
+                    <a href="#" onclick =content_control() >
+                        <img src="{% static 'images/icons/chat.svg' %}" alt="" >
+                    </a>
+                   
+                    <img src="{% static 'images/icons/share.svg' %}" alt="">
                 </div>
             </div>
-            <div class="content" style="background-color:red; height:150px; padding:10px">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil nemo deleniti eveniet placeat dicta iusto ratione velit esse, rem numquam iste doloremque debitis aliquam odio voluptate ad molestiae sapiente corporis.</div>            
+            <div id="content" style="background-color:red; width:100%; height:150px; padding:10px">
+                {{article.content}}
+            </div>
+            
+            <script>
+
+                function content_control(){
+                    
+                   content =  document.getElementById('content')
+                   
+                   if(content.style.display=="none")
+                        content.style.display = "block"
+                    else
+                        content.style.display = "none"
+                }
+
+                function like(){
+
+
+                }
+
+
+            </script>
+            
+
         </div>
-        
+
         <div class="menu-bar" style="position:sticky; height:1000px; width:200px; background-color: gray; ">
             <p>확인</p>
         </div>

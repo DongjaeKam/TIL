@@ -11,10 +11,15 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
 
+    article = Article.objects.get(id=8)
+
+    context ={
+
+        'article':article,
+    }
     
 
-    
-    return render(request,'articles/index.html')
+    return render(request,'articles/index.html',context)
 
 @login_required
 def create(request):
@@ -95,7 +100,7 @@ def comment_create(request, article_pk):
 
 
 
-def like(request,article_pk):
+def reviews_like(request,article_pk):
 
     article = Article.objects.get(pk = article_pk )
     
@@ -107,3 +112,17 @@ def like(request,article_pk):
         Like.objects.create(article = article, user = request.user )
 
     return  redirect('articles:detail', article_pk)
+
+
+def main_like(request,article_pk):
+
+    article = Article.objects.get(pk = article_pk )
+    
+    like = Like.objects.filter(article = article, user = request.user)
+
+    if like :
+        like.delete()
+    else:
+        Like.objects.create(article = article, user = request.user )
+
+    return  redirect('articles:main', article_pk)
