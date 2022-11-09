@@ -18,10 +18,10 @@
 </head>
 <body>
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex; justify-content-between align-items-center">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex; justify-content-between align-items-center" style="position: sticky; top: 0; z-index:1;" >
         
         <div class="nav-1 d-flex">
-          <a style ="margin:5px;"class="navbar-brand" href="accounts:index">내일의 집</a>
+          <a style ="margin:5px;"class="navbar-brand" href="{% url 'accounts:index' %}">내일의 집</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -54,7 +54,8 @@
             <p  style='margin-right:5px;'><a href="{% url 'accounts:index'%}" >{{ user }}<a/> 님 로그인 했음</p>
             <a href="{% url 'accounts:logout'%}">logout</a>
           {% else %}
-            <a href="{% url 'accounts:login'%}">login</a>
+            <a href="{% url 'accounts:login'%}" style='margin-right:5px;'>login</a>
+            <a href="{% url 'accounts:signup'%}">signup</a>
           {% endif %}
         </div>
       </nav>

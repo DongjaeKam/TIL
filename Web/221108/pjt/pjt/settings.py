@@ -77,7 +77,11 @@ TEMPLATES = [
 AUTH_USER_MODEL = 'accounts.User'
 
 STATIC_URL = '/static/'
-STATICFILES_DIR = [os.path.join(BASE_DIR,'static')]
+STATICFILES_DIRS =[
+
+    BASE_DIR / 'static' ,
+
+]
 
 WSGI_APPLICATION = 'pjt.wsgi.application'
 
