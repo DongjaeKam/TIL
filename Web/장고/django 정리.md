@@ -74,3 +74,20 @@ $ python manage.py runserver
 - http://127.0.0.1:8000/   
 - localhost:8000
 
+## static 폴더 설정
+```django
+
+경로 설정
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS =[
+
+    BASE_DIR / 'static' ,
+
+]
+
+경로 사용 예시
+
+{% static 'images/1.png' %}
+
+```
