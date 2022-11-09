@@ -1,19 +1,106 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block content %}
+<ul class="nav" style="background-color:antiquewhite;">
+    <li class="nav-item" >
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled">Disabled</a>
+    </li>
+  </ul>
+<div class="banner" style="display:flex; height:500px; width:100%; border:2px solid black; background-color:gray;">
+    <div class="area-1" style="width:70%; margin:5px; background-color:yellow;">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+        a
 
-    {% block content %}
-        <a href="accounts:find_password">Send Email</a>
-    {% endblock %} 
+    </div>
 
-</body>
-</html>%
+    <div class="area-2" style="width:30%; margin:5px; background-color:bisque;">
+
+        a
+
+    </div>
+
+</div>
+<div class="menu-button-container d-flex justify-content-center align-items-center" style="margin:10px; width:100%;">
+
+    <div class="menu-button d-flex justify-content-center align-items-center" style ="margin:10px; width:80px; height:80px; border-radius:15px; background-color:royalblue;">
+            <p>버튼1</P>            
+    </div>
+
+    <div class="menu-button d-flex justify-content-center align-items-center" style ="margin:10px; width:80px; height:80px; border-radius:15px; background-color:royalblue;">
+        <p>버튼1</P>            
+    </div>
+
+    <div class="menu-button d-flex justify-content-center align-items-center" style ="margin:10px; width:80px; height:80px; border-radius:15px; background-color:royalblue;">
+        <p>버튼1</P>            
+    </div>
+
+    <div class="menu-button d-flex justify-content-center align-items-center" style ="margin:10px; width:80px; height:80px; border-radius:15px; background-color:royalblue;">
+        <p>버튼1</P>            
+    </div>
+
+    <div class="menu-button d-flex justify-content-center align-items-center" style ="margin:10px; width:80px; height:80px; border-radius:15px; background-color:royalblue;">
+        <p>버튼1</P>            
+    </div>
+
+    <div class="menu-button d-flex justify-content-center align-items-center" style ="margin:10px; width:80px; height:80px; border-radius:15px; background-color:royalblue;">
+        <p>버튼1</P>            
+    </div>
+
+    <div class="menu-button d-flex justify-content-center align-items-center" style ="margin:10px; width:80px; height:80px; border-radius:15px; background-color:royalblue;">
+        <p>버튼1</P>            
+    </div>
+
+    <div class="menu-button d-flex justify-content-center align-items-center" style ="margin:10px; width:80px; height:80px; border-radius:15px; background-color:royalblue;">
+        <p>버튼1</P>            
+    </div>
+
+</div>
+
+<div class="card-container" style='margin-top:15px; border:0.5px solid gray; margin:10px;'>
+    <div class="title" style="margin:5px; font-size:1.5rem;">주제 없음</div>
+    <div class= "card d-flex flex-column justify-content-center align-items-center" style="width:350px; margin:10px; " > 
+        <div class="card-type" style ='margin:20px;'>
+            <img class="loudspeaker" src="https://www.dummyimage.online/300x300/000000/ffffff" alt="">
+        </div>
+        <div class="card-title" style ='font-size:17px; margin:10pxs;'>
+            카카오와 카카오헬스케어 '숨운동 서비스'
+        </div>
+        <div class="d-flex" style ='font-size:8px; margin:10pxs;'> 
+            <p>#숨운동서비스</p> 
+            <p>#국민보건</p> 
+            <p>#ESG활동</p> 
+            <p>#코로나19</p> 
+        </div>
+    </div>
+</div>
+
+<hr>    
+
+<div class="card-container" style='margin-top:15px; border:0.5px solid gray; margin:10px;'>
+    <div class="title" style="margin:5px; font-size:1.5rem;">주제 없음</div> 
+    <div class= "card d-flex flex-column justify-content-center align-items-center" style="width:350px; margin:10px; " > 
+        <div class="card-type" style ='margin:20px;'>
+            <img class="loudspeaker" src="https://www.dummyimage.online/300x300/000000/ffffff" alt="">
+        </div>
+        <div class="card-title" style ='font-size:17px; margin:10pxs;'>
+            카카오와 카카오헬스케어 '숨운동 서비스'
+        </div>
+        <div class="d-flex" style ='font-size:8px; margin:10pxs;'> 
+            <p>#숨운동서비스</p> 
+            <p>#국민보건</p> 
+            <p>#ESG활동</p> 
+            <p>#코로나19</p> 
+        </div>
+    </div>
+</div>
+<hr>
+{% endblock %} 

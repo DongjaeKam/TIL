@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'articles',
+    'django_bootstrap5',
+    'django_cleanup.apps.CleanupConfig',
+    'django_extensions',
+    'imagekit',
 ]
 
 MIDDLEWARE = [
@@ -70,7 +74,9 @@ TEMPLATES = [
     },
 ]
 
-STATIC_URL = '/statics/'
+AUTH_USER_MODEL = 'accounts.User'
+
+STATIC_URL = '/static/'
 STATICFILES_DIR = [os.path.join(BASE_DIR,'static')]
 
 WSGI_APPLICATION = 'pjt.wsgi.application'
