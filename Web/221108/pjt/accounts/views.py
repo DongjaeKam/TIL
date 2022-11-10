@@ -6,6 +6,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import get_user_model
+import os
 
 # Create your views here.
 
@@ -65,6 +66,7 @@ def signup(request):
     sign_form = UserForm(request.POST, request.FILES)
     if sign_form.is_valid():
       sign = sign_form.save()
+      os.mkdir("./media/userfiles/"+sign.username)
       auth_login(request, user=sign)
       return redirect('accounts:index')
   else:
@@ -90,6 +92,32 @@ def user_list(request):
 
 def delete(request,pk):
     
-    user = get_user_model().objects.get(pk=pk).delete()
+  user = get_user_model().objects.get(pk=pk).delete()
+
+  return redirect('accounts:index')
+  
+def profile(request,username):
+  
+  
+  if get_user_model().objects.get(username = username):
     
-    return redirect('accounts:index')
+    User =  get_user_model().objects.get(username = username)
+    
+    print('hello')
+    
+    context ={
+      
+      'User': User,
+          
+    }
+        
+  else:
+    print('bye')
+    
+    context ={
+      
+      'User ': "없음",
+          
+    }
+    
+  return render(request,'accounts/profile.html',context)

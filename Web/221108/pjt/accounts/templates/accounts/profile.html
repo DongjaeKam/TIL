@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %}{{user}}님 의 프로필 정보{% endblock title %}
+
+{% block content %}
+
+
+    <p>{{User.username}}</p>
+
+
+{% endblock content %}

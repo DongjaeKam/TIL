@@ -51,7 +51,7 @@
         </div>
         <div class='nav-2 d-flex' style="margin:10px;">
           {% if user.is_authenticated %}
-            <p  style='margin-right:5px;'><a href="{% url 'accounts:index'%}" >{{ user }}<a/> 님 로그인 했음</p>
+            <p  style='margin-right:5px;'><a href="{% url 'accounts:profile' user.username %}" >{{ user }}<a/> 님 로그인 했음</p>
             <a href="{% url 'accounts:logout'%}">logout</a>
           {% else %}
             <a href="{% url 'accounts:login'%}" style='margin-right:5px;'>login</a>
