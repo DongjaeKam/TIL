@@ -1,6 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import UserForm
+from .forms import CustomUserChangeForm
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
@@ -98,7 +100,6 @@ def delete(request,pk):
   
 def profile(request,username):
   
-  
   if get_user_model().objects.get(username = username):
     
     User =  get_user_model().objects.get(username = username)
@@ -121,3 +122,32 @@ def profile(request,username):
     }
     
   return render(request,'accounts/profile.html',context)
+
+@login_required
+def edit_profile(request,username):
+    user = get_user_model().objects.get(username=username)
+
+    if request.user == user:
+
+      if request.method == 'POST':
+          form = CustomUserChangeForm(request.POST ,instance=request.user)
+          if form.is_valid():
+              user = form.save()  
+              try:
+                user.profile_image =request.FILES['image']
+                user.save()
+              except:
+                print('error')
+
+
+              return redirect('accounts:index')
+      else:
+          form = CustomUserChangeForm(instance=request.user)
+      
+      context = {
+          'form': form,
+      }
+
+      return render(request,'accounts/edit_profile.html',context)
+    else:
+      return render(request,'accounts/index.html')

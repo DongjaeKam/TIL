@@ -15,6 +15,7 @@ urlpatterns = [
     path('delete/<int:pk>', views.delete ,name='delete'),
 #    path('<int:user_pk>', views.profile ,name='profile'),
     path('profile/<username>', views.profile ,name='profile'),
+    path('edit_profile/<username>', views.edit_profile ,name='edit_profile'), 
 #    path('my_profile/', views.my_profile ,name='my_profile'),
 #    path('my_profile/edit/', views.edit_profile ,name='edit_profile'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
