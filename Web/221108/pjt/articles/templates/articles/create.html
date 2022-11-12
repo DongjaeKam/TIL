@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %}회원가입{% endblock title %}
+
+{% block content %}
+<form class ='form-inline'  action="" method="POST" method="POST" enctype="multipart/form-data">
+    <label for="title">제목</label>
+    <input type="text" class="form-control" placeholder="title" aria-label="Username" aria-describedby="basic-addon1" name='title'>
+
+    <label for="content">내용 작성</label>
+    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" name='content'>
+
+    <label for="image">이미지 파일</label>
+    <input type="file" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" name='image'>
+    
+    <div class = "d-flex justify-content-center margint-top:5px; ">
+        <button class = 'btn btn-outline-primary' style = "margin:5px;"  type="submit">생성</button>
+        <a href="{% url 'accounts:index' %}">
+            <button class='btn btn-outline-danger' style = "margin:5px;" type="button" >취소</button>
+        </a>
+    </div>
+    
+</form>
+
+{% endblock content %}

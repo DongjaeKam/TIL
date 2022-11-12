@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'articles',
+    'items',
     'django_bootstrap5',
     'django_cleanup.apps.CleanupConfig',
     'django_extensions',
@@ -74,6 +75,9 @@ TEMPLATES = [
     },
 ]
 
+
+SESSION_COOKIE_AGE = 600  # 자동 로그아웃 초단위
+SESSION_SAVE_EVERY_REQUEST = True
 
 AUTH_USER_MODEL = 'accounts.User'
 

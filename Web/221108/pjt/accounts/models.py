@@ -10,7 +10,7 @@ class User(AbstractUser):
     profile_name = models.CharField(max_length=100)
     profile_image = models.ImageField(upload_to="image/profile_image", blank=True )
     rank = models.IntegerField(default=0)
-    
+
     def __del__(self):
         
         user_dir_path = "./media/userfiles/"+self.username+"/"

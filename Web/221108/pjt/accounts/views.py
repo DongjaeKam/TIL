@@ -8,6 +8,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import get_user_model
+from django.http import HttpResponse
 import os
 
 # Create your views here.
@@ -92,36 +93,26 @@ def user_list(request):
     
     return render(request,'accounts/user_list.html',context)
 
-def delete(request,pk):
+def delete(request,pk): 
     
   user = get_user_model().objects.get(pk=pk).delete()
 
   return redirect('accounts:index')
+
   
 def profile(request,username):
   
-  if get_user_model().objects.get(username = username):
-    
     User =  get_user_model().objects.get(username = username)
-    
-    print('hello')
     
     context ={
       
       'User': User,
           
     }
+    
+    return render(request,'accounts/profile.html',context)
         
-  else:
-    print('bye')
-    
-    context ={
-      
-      'User ': "없음",
-          
-    }
-    
-  return render(request,'accounts/profile.html',context)
+  
 
 @login_required
 def edit_profile(request,username):

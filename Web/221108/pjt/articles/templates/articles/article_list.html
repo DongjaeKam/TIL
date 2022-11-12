@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %}회원가입{% endblock title %}
+
+{% block content %}
+
+<h1>{{ type }} 상품</h1>
+
+
+<div class="container">
+    {% if not articles %}
+        <p>상품이 없어!</p>
+    {% else %}
+    <div class="row">
+        {% for article in articles %}
+        
+            <div class="col-4">
+                <div class= "card d-flex flex-column justify-content-center align-items-center" style="width:350px; margin:10px; " > 
+                    <div class="card-title" style ='font-size:17px; margin:10pxs;'>
+                        <p>{{article.title}}<p>
+                        </div>
+                        {% if article.image %}
+                        <img src="{{ article.image.url }}" style="width:300px; height:300px;" alt="">
+                        {% else %}
+                        <div style="background-color:black; color:white; width:300px; height:300px;" >이미지 없다</div>
+                        {% endif %}
+                        <p>{{article.user.username}}</p>
+                        
+                        <div class="d-flex" style ='font-size:8px; margin:10pxs;'> 
+                            <p>{{article.content}}</p> 
+                        </div>
+                    </div>
+             </div>
+           
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+
+    
+
+
+{% endblock content %}

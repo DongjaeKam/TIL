@@ -5,8 +5,6 @@
 
 
 {% block content %}
-
-
     {% for user in users %}
         <p>{{ user.id }} - {{user.username}} - {{user.email}} - <a href="{% url 'accounts:delete' user.pk %}">del</a> </p>
     {% endfor %}
