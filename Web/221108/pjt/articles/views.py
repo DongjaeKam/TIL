@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Article
-
+from items.models import Item
 # Create your views here.
 
 from django.views.decorators.csrf import csrf_exempt
@@ -18,10 +18,21 @@ def create(request):
        title = request.POST.get('title')
        content = request.POST.get('content')
        image= request.FILES['image']
-       Article.objects.create( user = request.user , title = title,content = content , image = image)
+       item_name = request.POST.get('item')
+       item = item.set().get(name=item_name)
+       Article.objects.create( user = request.user , title = title,content = content , image = image , item = item  )
        return redirect('accounts:index')
     else:
-       return render(request,'articles/create.html')    
+       items = Item.objects.all()
+       
+       context ={
+           
+          "items" : items,
+           
+       }
+       
+       
+       return render(request,'articles/create.html',context)    
         
 def article_list(request,type):
     
