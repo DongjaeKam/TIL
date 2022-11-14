@@ -57,5 +57,20 @@ def article_list(request,type):
             
     } 
       
-    return render(request,"articles/article_list.html",context)           
+    return render(request,"articles/article_list.html",context)
+ 
+@csrf_exempt
+def search(request):
+        if request.method == 'POST':
+               searched = request.POST['searched']          
+               items = Item.objects.filter(name__contains=searched)
+               context = {
+                   'searched': searched, 
+                   'items':items
+               }
+               return render(request, 'articles/search.html',context)
+        else:
+               return redirect('accounts:index')
+    
+            
     

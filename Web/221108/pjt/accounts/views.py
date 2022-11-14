@@ -10,16 +10,16 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 import os
+from articles.models import Article
 
 # Create your views here.
 
 def index(request):
     
+    articles = Article.objects.all()
     
     context ={
-        
-        'hello':'hello'
-        
+        'articles':articles,        
     }
     
     return render(request,'accounts/index.html',context)
