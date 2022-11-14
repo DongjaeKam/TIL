@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Article
 from items.models import Item
+from .forms import DescriptionForm
 # Create your views here.
 
 from django.views.decorators.csrf import csrf_exempt
@@ -15,19 +16,21 @@ def index(request):
 @csrf_exempt
 def create(request):
     if request.method =='POST':
-       title = request.POST.get('title')
-       content = request.POST.get('content')
-       image= request.FILES['image']
-       item_name = request.POST.get('item')
-       item = item.set().get(name=item_name)
-       Article.objects.create( user = request.user , title = title,content = content , image = image , item = item  )
+      #  item = item.set().get(name=item_name)
+       article = DescriptionForm(request.POST)
+       print('aaaa')
+       article.username = request.user.username
+       article.save()
+
        return redirect('accounts:index')
     else:
        items = Item.objects.all()
+       form = DescriptionForm() 
        
        context ={
            
           "items" : items,
+          "form":form,
            
        }
        

@@ -5,19 +5,13 @@
 
 {% block content %}
 
-<form action="" method="POST" method="POST" enctype="multipart/form-data">
-    <label for="title">제목</label>
-    <input type="text" name ='title'>
-    <label for="image">이미지</label>
-    <input type="file" name ='image'>
-    <label for="">내용</label>
-    <input type="text" name ='content'>
-    <select name="item">
-        <option value="none">=== 선택 ===</option>
-        {%for item in items%}
-            <option value="{{item.name}}">{{item.name}}</option>
-        {% endfor %}
-    </select>
+<form  action="" method="POST" method="POST" enctype="multipart/form-data">
+  
+   
+        {% csrf_token %}
+        {{ form.as_media}}
+        {% bootstrap_form form %}
+
     <button class = 'btn btn-outline-primary' style = "margin:5px;"  type="submit">생성</button>
 </form>
 
