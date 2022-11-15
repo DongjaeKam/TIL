@@ -148,12 +148,14 @@ def edit_profile(request,username):
     
     
 @csrf_exempt
-def find_password(request):
+def find_password(request,stage):
 
-  f = open("D:/FindPassowordInfo.txt", 'r')
+  # f = open("D:/FindPassowordInfo.txt", 'r')
+  
+  
 
-  code = f.readline()
-  user = f.readline()
+  # code = f.readline()
+  # user = f.readline()
 
   # print(code,user)
   
@@ -165,11 +167,6 @@ def find_password(request):
   # f.write(code)
   # f.write(user)
   
-  
-  if f:
-    print(1)
-  else:
-    print(0)
 
   code ='인증메세지'
   
@@ -191,7 +188,7 @@ def find_password(request):
   # 세션 종료
   s.quit()
 
-  return redirect('accounts:index')
+  return render(request,'accounts/find_password.html')
   
   
 
