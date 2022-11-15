@@ -52,8 +52,8 @@
         </div>
         <form class="d-flex" method="POST" action="{% url 'articles:search' %}">
           {% csrf_token %}        
-          <input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit"> Search </button>
+          <input class="form-control me-2" type="search" placeholder="검색어를 입력" name="search" >
+          <button class="btn btn-outline-success" type="submit" style="width:100px;">검색 </button>
       </form>
 
 

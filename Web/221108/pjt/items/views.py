@@ -12,13 +12,4 @@ def create(request):
     return render(request,'articles/index.html')
 
 
-def search(request):
-    
-    search_word = request.GET.get("search-word", "Guest (or whatever)")
-    
-    
-    
-    return redirect(request,'accounts:index')
-    
-        
-# Create your views here.
+

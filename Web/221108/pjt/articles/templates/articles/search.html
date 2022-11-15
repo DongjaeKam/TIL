@@ -5,7 +5,25 @@
 
 {% block content %}
 
+{% if articles_by_title %}
+    <p>있다</p>
+{% else %}
+    <p>없음</p>
+{% endif %}
+<hr>
 
-search
+{% if articles_by_content %}
+    <p>있다</p>
+{% else %}
+    <p>없음</p>    
+{% endif %}
+<hr>
+
+{% if items %}
+    <p>있다</p>
+{% else %}
+    <p>없음</p>
+{% endif %}
+<hr>    
 
 {% endblock content %}

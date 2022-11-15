@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from .models import Article
 from items.models import Item
 from .forms import DescriptionForm
+
 # Create your views here.
 
 from django.views.decorators.csrf import csrf_exempt
@@ -61,16 +62,35 @@ def article_list(request,type):
  
 @csrf_exempt
 def search(request):
+    
+        all_articles = Article.objects.all()
+        
+        
+        for article in all_articles:
+            print(article.title , article.content)
+        
+    
         if request.method == 'POST':
-               searched = request.POST['searched']          
+               searched = request.POST['search']
+               print(searched)          
                items = Item.objects.filter(name__contains=searched)
+               articles_by_title = Article.objects.filter(title__contains=searched)
+               for article in articles_by_title:
+                    print(article.title , article.content)
+               articles_by_content = Article.objects.filter(content__contains=searched)
+               for article in articles_by_content:
+                    print(article.title , article.content)
+              
                context = {
                    'searched': searched, 
-                   'items':items
+                   'items':items,
+                   'articles_by_title':articles_by_title,
+                   'articles_by_content':articles_by_content,
+                   
+                   
                }
                return render(request, 'articles/search.html',context)
         else:
                return redirect('accounts:index')
-    
-            
-    
+
+
