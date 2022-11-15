@@ -19,10 +19,14 @@
       ul {
         list-style:none;
       }
-        
+      
+      nav {
+        padding:5px;
+      }
+
       nav li {
           float: left;
-          padding-top:5px;
+          padding-top:8px;
           padding-right:10px;
       }
       a{
@@ -40,7 +44,7 @@
     
     <nav class="navbar-light bg-light d-flex justify-content-between " style="position: sticky; top: 0; z-index:1;" >
         <div class="d-flex">
-          <a style="pading:15px; margin-right:10px; " href="{% url 'accounts:index' %}">내일의 집</a>
+          <a href="{% url 'accounts:index' %}">내일의 집</a>
           <ul>
             <li>
               <a  href="{% url 'accounts:index' %}">커뮤니티</a>
@@ -54,12 +58,12 @@
           {% csrf_token %}        
           <input class="form-control me-2" type="search" placeholder="검색어를 입력" name="search" >
           <button class="btn btn-outline-success" type="submit" style="width:100px;">검색 </button>
-      </form>
+        </form>
 
 
         <div class=' d-flex ' style="margin:5px; margin-right:10px; margin-top:1px; ">
           {% if user.is_authenticated %}
-            <p style='margin-right:5px;'><a href="{% url 'accounts:profile' user.username %}" >{{ user }}님 로그인 했음</p>
+            <p ><a href="{% url 'accounts:profile' user.username %}" >{{ user }}</a>님 로그인 했음</p>
             <a href="{% url 'accounts:logout'%}">logout</a>
           {% else %}
             <a href="{% url 'accounts:login'%}" style='margin-right:5px;'>login</a>

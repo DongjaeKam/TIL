@@ -5,25 +5,56 @@
 
 {% block content %}
 
-{% if articles_by_title %}
-    <p>있다</p>
-{% else %}
-    <p>없음</p>
-{% endif %}
-<hr>
+<h1 style="margin-top:10px;">검색결과</h1>
+<hr />
 
-{% if articles_by_content %}
-    <p>있다</p>
-{% else %}
-    <p>없음</p>    
-{% endif %}
-<hr>
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center ">
+        <h2 style="margin-bottom:10px; font-size:20px;"><b>게시글 제목일치 <span style= 'color:aqua;'>{{articles_by_title|length}}</b></span>
+        </h2>
+        <a style="margin-bottom:10px; font-size:20px; color:aqua;" href="#">더보기</a>
+    </div>
 
-{% if items %}
-    <p>있다</p>
-{% else %}
-    <p>없음</p>
-{% endif %}
-<hr>    
+    {% if articles_by_title %}
+    <p style='font-size:16px;'>있다</p>
+    {% else %}
+    <p style='font-size:16px;'>없음</p>
+    {% endif %}
 
+
+    <hr />
+</div>
+
+<div class="container">
+
+    <div class="d-flex justify-content-between align-items-center ">
+        <h2 style="margin-bottom:10px; font-size:20px;"><b>게시글 내용일치 <span style= 'color:aqua;'>{{articles_by_content|length}}</b></span>
+        </h2>
+        <a style="margin-bottom:10px; font-size:20px; color:aqua;" href="#">더보기</a>
+    </div>
+    {% if articles_by_content %}
+    <p style='font-size:16px;'>있다</p>
+    {% else %}
+    <p style='font-size:16px;'>없음</p>
+    {% endif %}
+    <hr />
+
+</div>
+
+<div class="container">
+
+    <div class="d-flex justify-content-between align-items-center ">
+        <h2 style="margin-bottom:10px; font-size:20px;"><b>상품명 일치 <span style= 'color:aqua;'>{{items|length}}</b></span>
+        </h2>
+        <a style="margin-bottom:10px; font-size:20px; color:aqua;" href="#">더보기</a>
+    </div>
+
+        {% if items %}
+        <p style='font-size:16px;'>있다</p>
+        {% else %}
+        <p style='font-size:16px;'>없음</p>
+        {% endif %}
+        <hr />
+
+</div>
 {% endblock content %}

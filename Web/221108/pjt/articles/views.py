@@ -71,18 +71,18 @@ def search(request):
         
     
         if request.method == 'POST':
-               searched = request.POST['search']
-               print(searched)          
-               items = Item.objects.filter(name__contains=searched)
-               articles_by_title = Article.objects.filter(title__contains=searched)
+               search = request.POST['search']
+               print(search)          
+               items = Item.objects.filter(name__contains=search)
+               articles_by_title = Article.objects.filter(title__contains=search)
                for article in articles_by_title:
                     print(article.title , article.content)
-               articles_by_content = Article.objects.filter(content__contains=searched)
+               articles_by_content = Article.objects.filter(content__contains=search)
                for article in articles_by_content:
                     print(article.title , article.content)
               
                context = {
-                   'searched': searched, 
+                   'search': search, 
                    'items':items,
                    'articles_by_title':articles_by_title,
                    'articles_by_content':articles_by_content,

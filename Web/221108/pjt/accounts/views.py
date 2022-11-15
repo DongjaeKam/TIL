@@ -99,7 +99,7 @@ def delete(request,pk):
     
   user = get_user_model().objects.get(pk=pk).delete()
 
-  return redirect('accounts:index')
+  return redirect('accounts:user_list')
 
   
 def profile(request,username):
