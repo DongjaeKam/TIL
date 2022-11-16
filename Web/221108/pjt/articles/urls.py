@@ -8,6 +8,7 @@ app_name = 'articles'
 urlpatterns = [
 #    path('', views.index,name='index'),
    path('create/', views.create,name='create'),
+   path('edit/<int:pk>',views.edit,name='edit'),
    path('search/', views.search,name='search'),
 #    path('reviews/', views.reviews,name='reviews'),
 #    path('update/', views.update,name='update'),

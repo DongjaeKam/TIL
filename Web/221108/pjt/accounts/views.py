@@ -21,7 +21,7 @@ def index(request):
     articles = Article.objects.all()
     
     context ={
-        'articles':articles,        
+        'articles':articles[0:4],        
     }
     
     return render(request,'accounts/index.html',context)

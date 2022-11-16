@@ -1,30 +1,39 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<ul class="nav" >
+<ul class="nav">
   <li class="nav-item">
     <a class="nav-link active" style="padding:10px;" aria-current="page" href="#">Active</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" style="padding:10px;"  href="#">Link</a>
+    <a class="nav-link" style="padding:10px;" href="#">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" style="padding:10px;"  href="#">Link</a>
+    <a class="nav-link" style="padding:10px;" href="#">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled" style="padding:10px;"  >Disabled</a>
+    <a class="nav-link disabled" style="padding:10px;">Disabled</a>
   </li>
 </ul>
 <div class="banner" style="display:flex; justify-content:center; align-items:center; height:300px; width:100%;">
-  <div class="area-2" style=" background-color:bisque;">
+  <div class="area-2" >
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active" style="height:300px;">
-          <img style="height:300px; width:800px;"
-            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUQEhIVFhUWFRoYGRgXFxUYFxoYGBkXFhYbFhsZHSggHR8lHhgYIjEhJikrLi4uGB8zODMsNygtLisBCgoKDg0OGxAQGyslICY1MC0uLy0vLS0tLS8tLS0tLS8vLS0tLS0tLS0tLS0tLS0tLS0tLS8tLS0tLy0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABAUCAwYBB//EADsQAAIBAgQEBQIFAgUEAwEAAAECAAMRBBIhMQVBUWETInGBkTKhBhRCUrFiwSMzcoLRkrLh8RU0oiT/xAAaAQEAAwEBAQAAAAAAAAAAAAAAAQIEAwUG/8QALxEAAgIBAwIEBQQCAwAAAAAAAAECESEDEjEEQVFhofBxgZHB4RMisdEU8QUjMv/aAAwDAQACEQMRAD8A+4xEQBETBXB2MAziIgCIiAIiIAiIgCIiAIia6tVVF2IA6mAbIlfR4pRdiq1FJBtva51+m++x2lhITT4LSjKOJKhERJKiJgjg7EGZwBERAEREARE8vAPYiIAiIgCIiAIiIAmurVCzZNGIpXt2kSusExq8kOvjNLMbc78tOshYfHqzZRqb20/8zLGohuPM3XYD2+0hU8I2lwTrcX2339f+JjlKVnoQhHadGtcCw378pIlbRw+nlN+x3+ZNdso6zVGT7mKcVdI2xIS4o3A01O0kLXUm0lTTIcGjbERLFBERAESn4/j6tFFNJQSWtqCQPgjUyBgOJP8AmAKpdTUQDw7eRW+bi9idv1C+0o5pOjRDppzhvVVn445xydHWJAJAuQDYXtc8hecL+IuImowYG9Kwul/pax6d+c76cfQ4ZRCPXrL5VdjcFrkE2RLXsSP5IHIyurbwX6PXhoz3TV/T381wUuErjxKbFjZHDbXt5hcemgt3E+lTh/w5gKj1M6OVpKw1I1Ot7W2vpqeV53EjQ4s6/wDIa2nqOP6bte/JfcSFiMWBdbHoTJsi18Mpu2u3I7y2pur9pihtv9xWUq1tFOu2l9QL7fb5lngs2XzX30vKWs6oC5Fhpe19ATYm3TW95YcLN7spGX136f8AuZtF/uwaNaqfiWkSLinUo4zDTynnYm29vUfMx4bVLU1Lb2Gtwb3AN5svNGWsWTIiJJBFr4tEIVja+19vmU+JxbJirDZsgtyINhLbiODFZMpNjyPScbxJqlF0AZXKHQjzWF9j78uU8frv1t8VxFSUk067NNPPna7cJ4tr0ei04Ttd6aafo/8AZ0VTixaoEp2y5wCd79bdpcVKgG5A1tqbazlMDVFAgmixYjdiRv8AtFvv/En8TxHi07WKsFz5eZXYkehI+ZTputmoaspu5rO2mlFLtdV6u+c5I1+nipxilUeLxn1Lyo4UFibAamRsBjRVzEC1j9uX95z78QLYdkJ2cC/9BBI+CP4k3g1RKSFqjBS5BA55eRsOs6w696mtDbiG22381zxhqvPJSfSbNNt5d0vfwOgiRsNjEqXyG9uxH8yTPUhOM1ui015ZMbTTpoRESxAmuut1ImyJDVhYKipQBOu888J0JzEeGQMvVW/UD2Oh+Zb2kLE4umG8KpYZxpm+luRF9r9j1E5PTS5Z1lrN0Y+ItMPUY6U9/gH+CPme4nFML2toZT8XolaeIFySUp6cyEfRvdSAe6NLSkwzZDrUWmjEet1Pxb7iRbvasf7a+xEZpy/cVlV6niaAC42sRuNbc++nWWGDG1mB+QfuJ4KRBzKfNyvsSdNZvp0De1ues5xi+TTOaqvfqWERE1mISNjnZabMguygkDrbW3vtNzuACSQANSTsPWaaOOpOcqVEY9AwJ+xkMHH/APyXivUyeIrVQACWGVWB2BHIgkX0tf3mX4a4MKhNR9aYOg5M3P0UdOZ9wbPHYOgMQrl1XMSGUEfURobDYm+/vvrJPBeLKzNh2Co9NioC6KQulwOW20zqK3JTf595wbeo6j/rUIJpNK7XLWOfCq93c/FXAFOnZWYEA20VRu1u1wAOpHK80vwqmyZHuwAsBmZVA7BT9zc6nWQcRhatc+IKppUyL31DFRfL0sLXOp3Y6aCc3wimzViiuAtQFSSAWtYnytvrpoN5eU81Xv4HHR0HqqTtJLLv7Evg1dqBeq1/DtlyAggtfS2uw11/5nXcNxYrUlqgEBhsdxYkH+JU8G4AaNRnZwwKZcoGh1BBN/Q/M6ACW0ouKydesnoyl/1pfFYVVxX37nsRE6GM10qKrsJGqqKbeIAADYPb4Vj6bE9DrsJvxNcIuY+w6nkBIvEKzeAzogY5b5TqLfqGm+l5S0sLsS75ZVcKcUqbI5/xqzO+Xn9RW/TlebMGK21HLq5z1G1GVWIACg/UQL9hbrIODtjMOHPlr0D9XVh5gT2b7X+bd+JUsNTBfQNUewUci5N7dLEH3nCNVbeK5Cf7a9+8FxE8Gus9mogg8TDlMqbsbb20sSbew/mUH5Bkd6RsS9LMPVXUlR7D7zoeIZCFpsSC7WUjcMAXBHcZZBZyzKtTy1aTBlYfS6XAqFf9p1Xkbb6TDr9Jp6upvnd1t5wrw682n7o7Q15wjtj438ayQqXETQwxbcl8tNe5tb2BvI9VilWnUD5np0yjcwWJJYnXa5+0mUKAqVhVfSlSPk6GpVbMD6AMg9fQyx4jhczUqoNmpuL9CreVgfm49Jz/AMfW/QjpwnTjSuvDms4z/AepCWrKco2n2uv9nK8Swr1GUkKha5AF1uBzIvpflPaKUrFmZ7jlkzG/ax197Tfi6tOq5erUCqymxFycvIKBqTa33kmvw4qBUpq+Ww1YWf1I3+QDPG1oTlCU1HdGLfjbS5f7Wn4/XwVnqrqbrSbptL5N9slxwaiFS4RlJ5sACfYE2HYyziJ9Rp6cdOOyKpI8WUnJ2xERLkCIiAJGxuDSquSoLj7g9QeUkxIavDBzQprRJpCsSQCFSr5dDyViACDYehA7gzKVK+LFYXytRI9GVlBU9Dr9jLWrSVhZlDDoQD/MjNhspz0wAbWK7Kw0+DoNfY8rUUK+Aor8ZjGDFWXz08zIeVRcrBbd8xQEdbHaWPCsKaVJUY3bUserMSzfcmV3GcTdUYDRXAcMPNTJtkY+jAdiDzBknG44haJUWz1URh0uSGHsRaQmk3fb7+6ILSIidSRKDjfDaKqcQBkddQVNgW5XA78xYy/kbGUc9NksDcWs23vKyipKmi0Nu5buLR85q184u7KSxzmwvqTf6tx06Sz4ZRzVUYjVgVKjzNly6luhIzLfTUgm0kL+GHuz1MiKP2Ek7i58wtoLnvLLgnC0oVarZy2RVBZrCxILsLD+kob95njpttWev1uv089Nwu2sql3+P8ls2HNQf4oGU/o3U/6/3em3roZCr/hnDNqEKH+hiv22kSnxXF1mvQor4fIvcXHW9x9ryxwn5u/+KKJX+kuCPkEH0+86XCfa/keLhk6imVQtybC1zqTbr3m2InYkREQCt4yTkCi92NgQL62Nrj1/iVfBsTVfElUNqCIPLoR5hca73JN/ma+J1MRRrM75qmHb6gNQq9gPpI+DLPhiIiVfNYZtW0tlCJkN9voyn1Jmf/1Pwr39HRO61RqbDU6b1DTsA5ViOWYZg1uQ/SfmQq2FSo6O2uS/l1sdefYW2k50FlYEMrC4I1uNLb7XvNVOjl1Gp2N7e38H4Ezy5yjXCMHCuUWeExLMbG0lsbC52Ej4MqVuAB1kqbNO9uXZm1K3OlRT8d1WjVU3CV6bXGoyk5D/AN0lYt1Ku1gTSudeTBbke6tb0Mi1eFFWL0TZXv4lI/S192T9rfY9t5iFPhYpjoWLG3Q+CikfIkJu8lDHjlLw8C6D9NMC/O9xr63mVbE+MDRG5Kg+gValT2syryPm0mz8Q0DURKd7KagznayKGcm/+0SOnCTVzGoSiVGJKDRit/KrHkLWuAL7C+khp7nXkv5I7m7huCw5Y1VIquDY1DqL9Ft5RboNpcTVRpKihVACgWAGwm2dIraiRERLAREQBERAEREATTiKCuuVhp2JB9iNRN0QChqfh838teoBYizefQ7i55dttt5njKNVbMU8UBlY5NCShBzZCfqsLaE32sNLXcSmxLgEXDY6nU0VtbXKm6uP9SNZh7iSppxGHRxZ0Vh0YAj7zYqgCw0AlgZRESQYVACCG2IN/TnK3g1ItSFSocxqecgiws305h1C5Rr0jjNTNlww+qsSD2pC3it20IUHrUWWgErywexESwEREAREQDRiGYKSihmtopOW/vbSczxpKxpZPCNPxGRMoIZQc3lsV0Cm9tQLWUbbdbNNekGUqefMbg7gjuDr7Sk4blQZX4qgEXD0R+8IPQU3LE+yn3tJ9PDKBa1773kRapZ6YOjKXzDuFtcdjmBHrLKFGN2TudUYIgAsBaZxEuQJVcYUrTquovdDmG17CwYd7adwB0lrIHHf/rV7b+DUt65DaRLgGwUC5DVLWBuqjYHkWPM9th3IBkueAz2SBERAEREA8iexAEREAREQBEj4jFKlgx37TDC41ahIFwR15yLLbJVurBLiIklRERAE016hVWYKXIBIVbXPYXIF/UzdEAqeD4OoC1evbxqlhYG4poLlaanna5JPMk8gJbREhKkBERJAiIgCIiAIiIBFbCg1Vq8wjIe+Yow+Mp/6jJURAEREATXXphlZTswI+RabIgGnDUyqKpNyFAJ2uQLXtN0RAEREAREQBERAEREATRi82Rst720tv7TfI+NxS0kNRthb7kAfzIZKdOznq2LdSaTAsdCVbex5q37rchInD8Zc2RhfMddbgWIA11BIub9LS3p4Zqn+I/0kZieRFri0rHomxKL5iCba3vYnbrOLtZPUjKFSTq+XXHf1/F326HhruVOYg22IIPt/76yfOI4Tx/OyCghd2sGNzkB0zWAGoBvredvL6eoprB5uq1vdf0IiJ0KCInhMA9kHH4zw7bb6jXbXp6SoNCt+baqzkUlawGb6rrfKFvruJhVcK7ahVsBZvfc9Z53WdVLTjSVN4v8AH5vwTNHTaS1G77epubiLMahW+W9j19va3z2kvBY8k+cgACxv10Aueu84vE8bqeL5cvlJ0N/NlNhcg2GgY67AX2l1SxeZEqBtDqV5+ba9tt55i6nV0q1JPDz5PN5zjm6z35dm+fSpqq9+0dejAi4NxMpGwbEqLi3S3T5Mkz6KEtyTPJap0IiJYgSNhMUlRcyG4uRfrbe05XF4jwarqlZXp1Q4yKfMpYbrrl0JvuNNJE4ccSw/LURlsc1U5rWLGwsd7BQNBqdZy/VzVHoLoouNuSXDzjGbvvh0sdzvokTA0DTQIXLkbs17k78yZLnUwOk2kIiIIEROf4jiqtKo6Brq6lk6qbZTY9j5rd5MYuTpExTbpF1imIRiv1BSR620kLBcXp1KH5i9gBdh+021H/HW4lDhsX4SuQ7XI632J19TI+NwbIPytLzGswqWHJLDfoMxb4Er1EZaTvn2q9cE6kdh2ODr+JTSpa2ZQ1juLi8kSlfH/l1WjlzFKa3sbXNrC3x95u4fxZallay1Dey3ve3MG3Y6dpdac9u5obHVlpERKlRERAEREASo4oKeJp1MOlRc97WJ1BU31G9u8t5QcW/Doq1BWp1DTe4uQL7bEd5z1L24VkMi4epWQeAb5UwrljbTOSdL/wBNrfMvMUEphq1hmAsOhJ0UepNh7yn4/hqhpVFRrOrCoLErmVlKMPm5I21HXSVwerWqWSutmpm7HTzEjybadSR2Q85WLp7ckptcEPhWPrM60qWHCUl0LMpByjc8gGPTqZ085jHcUP5qmqvZACAOrHckc9BoJ0FCsW3Ur0vbWTpvlN39PsdJaM4K5G+ImFRwouTYCdG0ss5lfi+KKjZdDpvfTnoZVcTxHj0gr/STclT0I1Pbn/6mrF1TnZQpYNc7aX5WvaRRRLLdnKnNqNNRcaEdus+a1uu1pykk8Z8EsPx7/Xhs9WHTae1WiSwplqQdHq2YKpDaAAU1zm31EkD4+dvEWBZkbWzgsulxm1W5vttHDg5qkICALEEi4978tPWbvxBVp0ytfRiylSoP1ldV1HQk37ek1RUuq0G5Yafyfa7zfj4V6Z3t6fUxw/qimr8EVnZzb9NlBIU6n6rb/wAdtJZ4ajr4aLYa3Fv41krD4YflzUrhabEXJ5Lrpvrz6ybhalHxDSXV0AJOv6trnmbEfMjT6Cba3Ol8c1bwvDHPbyvKvPrU178CRgKOVBfcgX9bSVET2oQUIqK7GCTt2xIPE8KatM0w+UH6iNSR0HrJ0jYo1AL0wpI/STYHtfkfY/3FnwTGTi1Jco4/j/DxTdKFBTmcb/qYk2tmOwsDcCw5maqvCmoO9bDOwRM2mY5rI1nBv9QBHPkV3vL/ABeLWqtSmEKV/DZQjgBiDvkOzA23BkPCUHq4SscpFQ3OU6G7UkzqR1Nzp1t0mdpXj3XY3f501CDVNq0083dPPp5rxMsPxGphsi1anjByL2INWmWAJBW92HP57CWfD+M0qpIBAN9AzKGa3MLe/wAzm8bw7PWCU8wCgO1QHzEvre+1yWUAeptvNvBOG5qtSm6owRywcjMdyPIdBuDvexU6SYyknS499y0un0Fp85ST86b8Lrwx4U6s7WJ4BPZoPNEhVUpVsymzFDY8ipIB3Go0k2cj+I1q4ev+ZpMQKlgeYzAWsQdNQBb0MpPUcFuIbrI4zwIAqtMsfFqKPMQQmUMzEaX1Fyb/ALB1nRUaYFVrDalTF+ds1TSRcHjvGoJV0zBlzW5G+V//AMkn0MrPxXjymamh81QKptuFW7H5zgfMpKSSeo88e/Ulvua/xPWBel4YLmpmF082tM66DfUke3YydwbhrhhUcZbbA/UdCPbc9/SQ0YYZaYFPPWWllVRclTUbPUvbYCyesm8Mw+Lqf4lesyA7U1VB83BI9N/SdI9TOtn24wu5b9R1tL6IiWKiIiAIiIAlJ+JOLnDBCqglib3vbKo199R95cOtwR16aGclixjaHmZDiUpuGWwzVOnlH1Xsemm95y1ZNLH18B5HtDiRxGHqVUsxpkgXNs9NgM3UgZgbG2pp2lpX4iuGZKdS58S7NUG2a43G9uQ6AAazm8cKlKhiMRe3jZgnUgMWuRyGVbf7p0eKwSY6jTqXKmxsRrYnRh8j7TmpSapf+vz/AEJy3NuiJxl0pMWc5g3mAFr3ObL66/aS/wAM4s1EbyEIDoT15gdh/eRRQwpC/mKiZlAVbvl8igKDa+zWz/7tzOgoBQoyWy28uW1rcrW5S8bcrvHh3LvVnJbXwbpiwvoZ7PZ2KFLjuHFm8i2Gmub/AM+0h4vhlRVZghc6aZtbc8vft6TppR4rhuJ8Q1aWIIDG+R7lR2A1FvQAzztT/j9Hdv23fb9v8V+fFmj/ACtRR2r73/JhSxaGj41O4ujow1urhbjNfUWKkAH94mHBuFACh4mpo08wHINVYm57jLb3M24mi+VzVRRmFnancqbfS+Ui4Zd+dwLXJyiTOHV8xBNrlADbYFD5rdjnBB5gg85rjBY8vl58fJGd5dsx4rUN1Q0w9Jgwqk/pAXMPmx97TDgraMvjK7C11W3kNtRfc66X6ACVmF4ciI9alVapSqkArY31qAXBOpbcbc5N/DVMqH//AJvBFxa5JZt/qza6f3kRk3JX3+f8Y88kF5ERO5IiIgFFxnH0GQo1sw1XOlUWYdCACp/qB0kL8K8Vzu9Jgbk5wcptewBBNrZjbN38x5TqpUcSdC+VaTtUUBs1PIGUX01ZhfUfTqOs5STT3X6flllJKLTS+Pdf38zDEK2Q0KejeKqqei6VA3fKoKjrkmscTWhVGHenlWwFNgSQwGig6b8vX5mNXFg3rXKsKVRGBupFRbMuh1BsXI7GUXFsI9IU7VKjPVGYrfTPdSNP1annKylWV7X5NPR6UNWbhLlrH932rzx8y54Nx1PBVqz2ZixF7kkZjrYXIF7gek6JTfWcLwOm9PEqKiUyXsbheRW4A6ddr97Gd5L6TbWR1kYKdwXOe1Z8K7LjP0QkfGYVaqNTcXVhr/YjuJQccr4nDt4qVC1InVWCnKemgvb3/tfDD/i6/wBVK2m6tfX0toPeVetFPbLBjtEduE18MXZD4lMqQwGjZSCLleZG+mum0k4moi4p6pTMwsACdiLAEfH37SI3FXqP4hABFMpYXykMefpPeLo16L0wXaszsVG+S5KkW7MoPrO8dGGg2tVY+tPHz7nVQUHUy64PxBWFRnAUhru1wFN9BqegAHxLGjjKb/RURvRgf4nJf/A4mrYNamm9iw35my8/j1nQcK4FRoahQz/vIF/bpOcpuU3sjUfO/Tuc5O3jgtYiJcCJ5EA9iIgCV/F69ZEzUUVyDqDcm3YDeWESGrQOMW+Lpvh6qGkxLPTOU5SxBLqL89Wa172J/bLbhRAwtCnTJvVphgeYVgGd+1s2ndllriqAqLlNxzBG4I1BHcGVX4WoZaIzHMylqV7WstF3pgAf7Se+bpYDlGG1+L8SKJVTgeGZgxpLcW2uBptcA2Ms4idVFLgkRESQIiIBV8T4utB0V1bK36xqAen95ExOGsRWoMDSZWDqutgVIDU7dDa67kDTUAS6r0VdSrqGU7ggEfeV1PgVFTen4iX/AGVKgHxecmpX5evv6Agfh1x+UyHei929AwqXHUFdjJ3GMW+ZKFH/ADH1J/YgPmY/x/5tMPyHgOaqhnRly1F3a2+YADzWufLv5ja+03cIRbu+YMxyjNe90CjIQeYOpuOZYcpCi1FQ917wKwWkRE7AREQBKzwyMXm5NRPyrr/Yyzmo0/OG6KR8lSf+0SsldAr+NYUMFa9vMEPcVM1IfBqXHv1m/H0KeVqjqCUQ2NrkC1/L39JlxX/KY/tKt/0sG/tMajeI+QfShBc/1CxVR9mPoBzNndk20Y8KwZRBn+snMexy5APZQB7SwiJKVKiDXVphgVYAgixB2InO4j8PFLtQN1OpQ7+zf8/M6aIrKa5Xv3eAnTtHy7Fiq11UmmAyoUtqC7BMzHfS+3pPouBoZRe1iQAB+1Roq+3PuTK98GlTGZwP8tAX6Gof8r3VcxPrTPKXkpFSbbk79+nwWCW2+REROhAiIgCIiAIiIAiIgCVXCDlq4ml0qhx/pqIp/wC8VJaxIaAiIkgREQBERAEREASpxPD2V/GoGzXOemfoqA6n/S19Qw53uNSZbRIasETCYxal7XDL9SMLOp/qH8EXB5EiS5p8FcwfKMwBAawvY2JF+lwNOwm6EBERJAiIgELitNmoVVT6mpsFtY6kEDQzdhqARQi7DrqSdySeZJuSeZJm+JFdwIiJIEg8TxoopmtmYkKiDd3bRVH9zyAJOgk6aXoqWVyoLLfKTuM2ht0uJDvsCPwrCGlTsxzOxL1G/c7asR25AcgAOUnREJUBERJAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAf/Z"
-            class="d-block w-100" alt="...">
+          <img style="height:300px; width:1000px;"  src="https://dummyimage.com/800x300/f00/fff" alt="...">
+        </div>
+        <div class="carousel-item active" style="height:300px;">
+          <img style="height:300px; width:1000px;"  src="https://dummyimage.com/800x300/0f0/fff" alt="...">
+        </div>
+        <div class="carousel-item active" style="height:300px;">
+          <img style="height:300px; width:1000px;"  src="https://dummyimage.com/800x300/00f/fff" alt="...">
+        </div>
+        <div class="carousel-item active" style="height:300px;">
+          <img style="height:300px; width:1000px;"  src="https://dummyimage.com/800x300/f00/ff" alt="...">
         </div>
       </div>
+
+
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
         data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -41,54 +50,75 @@
 <div class="menu-button-container d-flex justify-content-center align-items-center" style="margin:10px; width:100%;">
   <div class="menu-button d-flex justify-content-center align-items-center"
     style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
-    <img src="{% static 'button_img/free-icon-toy-car-1863995.png' %}"
-      style="width:100%; height:100%;  object-fit:cover;" alt="">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-toy-car-1863995.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
   </div>
   <div class="menu-button d-flex justify-content-center align-items-center"
     style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
-    <img src="{% static 'button_img/free-icon-reward-6778954.png' %}"
-      style="width:100%; height:100%;  object-fit:cover;" alt="">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-reward-6778954.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
   </div>
   <div class="menu-button d-flex justify-content-center align-items-center"
     style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
-    <img src="{% static 'button_img/free-icon-kitchen-cabinet-5334944.png' %}"
-      style="width:100%; height:100%;  object-fit:cover;" alt="">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-kitchen-cabinet-5334944.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
   </div>
   <div class="menu-button d-flex justify-content-center align-items-center"
     style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
-    <img src="{% static 'button_img/free-icon-double-bed-4269172.png' %}"
-      style="width:100%; height:100%;  object-fit:cover;" alt="">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-double-bed-4269172.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
   </div>
   <div class="menu-button d-flex justify-content-center align-items-center"
     style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
-    <img src="{% static 'button_img/free-icon-books-stack-of-three-29302.png' %}"
-      style="width:100%; height:100%;  object-fit:cover;" alt="">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-books-stack-of-three-29302.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
   </div>
   <div class="menu-button d-flex justify-content-center align-items-center"
     style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
-    <img src="{% static 'button_img/free-icon-desk-1909114.png' %}"
-      style="width:100%; height:100%;  object-fit:cover;" alt="">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-desk-1909114.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
   </div>
   <div class="menu-button d-flex justify-content-center align-items-center"
     style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
-    <img src="{% static 'button_img/free-icon-giftbox-1139982.png' %}"
-      style="width:100%; height:100%;  object-fit:cover;" alt="">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-giftbox-1139982.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
   </div>
   <div class="menu-button d-flex justify-content-center align-items-center"
     style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
-    <img src="{% static 'button_img/free-icon-clock-2972531.png' %}"
-      style="width:100%; height:100%;  object-fit:cover;" alt="">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-clock-2972531.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
   </div>
   <div class="menu-button d-flex justify-content-center align-items-center"
     style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
-    <img src="{% static 'button_img/free-icon-shuttle-2285485.png' %}"
-      style="width:100%; height:100%;  object-fit:cover;" alt="">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-shuttle-2285485.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
   </div>
 
 </div>
 
 <div class="card-container" style='margin-top:15px; border:0.5px solid gray; margin:10px;'>
-  <div class="title" style="margin:5px; font-size:1.5rem;">주제 없음</div>
+  <div class="d-flex justify-content-between align-items-center" style="margin:5px; margin-left:20px; margin-right:20px;">
+    <div class="title" style="margin:5px; font-size:1.5rem;">주제 없음</div>
+    <a href="#">더보기</a>
+  </div>
 
   <div class="d-flex">
     {%for article in articles %}
@@ -116,9 +146,11 @@
 
 <hr>
 
-
 <div class="card-container" style='margin-top:15px; border:0.5px solid gray; margin:10px;'>
-  <div class="title" style="margin:5px; font-size:1.5rem;">주제 없음</div>
+  <div class="d-flex justify-content-between align-items-center" style="margin:5px; margin-left:20px; margin-right:20px;">
+    <div class="title" style="margin:5px; font-size:1.5rem;">주제 없음</div>
+    <a href="#">더보기</a>
+  </div>
 
   <div class="d-flex">
     {%for article in articles %}
@@ -141,7 +173,9 @@
     {% endfor %}
   </div>
 
+
 </div>
+
 <hr>
 
 {% endblock %}

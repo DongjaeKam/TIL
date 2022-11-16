@@ -94,3 +94,36 @@ def search(request):
                return redirect('accounts:index')
 
 
+
+    # username = models.CharField(blank=True,max_length=50)
+    # # item = models.ManyToManyField('items.Item', related_name='articles')
+    # title = models.CharField(max_length=100)
+    # content = models.TextField()
+    # description = RichTextUploadingField(blank=True, null=True)
+    # created_at = models.DateTimeField(auto_now_add=True)
+    # updated_at = models.DateTimeField(auto_now=True)
+    # image = models.ImageField(blank = True, upload_to='images')
+
+
+def edit(request,pk):
+    
+    if request.method == 'POST':
+        
+        article = Article.objects.get(pk=pk)
+        article.title = request.POST.get('title')
+        article.content = request.POST.get('content')
+        article.image.url = request.FILE.get('image').url
+        article.save()
+    
+    else:
+    
+        article = Article.objects.get(pk=pk)
+        
+        context ={
+            
+            'article': article,
+            
+        }
+        
+        
+        return render(request,'articles/edit.html',context)

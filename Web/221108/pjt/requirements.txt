@@ -4,11 +4,14 @@ charset-normalizer==2.1.1
 Django==3.2.13
 django-appconf==1.0.5
 django-bootstrap5==22.1
+django-ckeditor==6.5.1
 django-cleanup==6.0.0
 django-extensions==3.2.1
 django-imagekit==4.1.0
+django-js-asset==2.0.0
 django-location-field==2.1.0
 django-mapbox-location-field==2.0.0
+django-richtextfield==1.6.1
 idna==3.4
 pilkit==2.0
 Pillow==9.3.0
