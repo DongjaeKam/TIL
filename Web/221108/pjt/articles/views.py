@@ -18,7 +18,7 @@ def index(request):
 def create(request):
     if request.method =='POST':
       #  item = item.set().get(name=item_name)
-       article = DescriptionForm(request.POST)
+       article = DescriptionForm(request.POST,request.FILES)
        print('aaaa')
        article.username = request.user.username
        article.save()
@@ -104,16 +104,17 @@ def search(request):
     # updated_at = models.DateTimeField(auto_now=True)
     # image = models.ImageField(blank = True, upload_to='images')
 
-
+@csrf_exempt
 def edit(request,pk):
     
     if request.method == 'POST':
-        
         article = Article.objects.get(pk=pk)
-        article.title = request.POST.get('title')
-        article.content = request.POST.get('content')
-        article.image.url = request.FILE.get('image').url
+        article.title = request.POST.get('article_title')
+        article.content = request.POST.get('article_content')
+        article.image= request.FILES.get('article_image')
         article.save()
+        
+        return redirect('accounts:index')
     
     else:
     

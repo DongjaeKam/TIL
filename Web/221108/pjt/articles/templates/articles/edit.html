@@ -8,10 +8,10 @@
 <form class ='form-inline'  action="" method="POST" method="POST" enctype="multipart/form-data">
 
     <div class = 'd-flex flex-column justify-content-center align-items-center ' style = 'margin-top: 20px;'>
-        <label for="input-image">       
+        <label for="article_image">       
          <img style="border-radius: 10px; width:200px; height:200px;margin:5px;" id="preview-image" src="{{ article.image.url }}">
         </label>
-        <input style="display: none;" type="file" id="input-image" name="image" accept=".gif, .jpg, .png">
+        <input style="display: none;" type="file" id="article_image" name="article_image" accept=".gif,.jpg,.png">
         <p style="color:red;font-size:7px;">이미지는 *.gif, *.jpg, *.png 형식만 가능합니다. </p>
     </div>
     
@@ -32,12 +32,23 @@
           }
       }
       // input file에 change 이벤트 부여
-      const inputImage = document.getElementById("input-image")
+      const inputImage = document.getElementById("article_image")
       inputImage.addEventListener("change", e => {
           readImage(e.target)
       })
 
       </script>
+      <label for="article_title">       
+         제목
+       </label>
+       <input type="text" id="article_title" name="article_title" value="{{ article.title }}" >
+       <label for="article_content">       
+          내용
+       </label>
+       <input type="text" id="article_content" name="article_content" value="{{ article.title }}" >
+
+
+
     <div class = "d-flex justify-content-center margint-top:5px; ">
         <button class = 'btn btn-outline-primary' style = "margin:5px;"  type="submit">수정</button>
         <a href="{% url 'accounts:index' %}">
