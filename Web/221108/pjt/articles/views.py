@@ -111,6 +111,7 @@ def edit(request,pk):
         article = Article.objects.get(pk=pk)
         article.title = request.POST.get('article_title')
         article.content = request.POST.get('article_content')
+        article.description = request.POST.get('article_discription')
         article.image= request.FILES.get('article_image')
         article.save()
         
@@ -128,3 +129,12 @@ def edit(request,pk):
         
         
         return render(request,'articles/edit.html',context)
+    
+    
+def delete(request,pk):
+    
+    
+    Article.objects.get(pk=pk).delete()
+    
+    
+    return redirect('accounts:index')

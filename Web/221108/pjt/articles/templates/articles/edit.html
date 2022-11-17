@@ -8,8 +8,14 @@
 <form class ='form-inline'  action="" method="POST" method="POST" enctype="multipart/form-data">
 
     <div class = 'd-flex flex-column justify-content-center align-items-center ' style = 'margin-top: 20px;'>
+        
+        
         <label for="article_image">       
-         <img style="border-radius: 10px; width:200px; height:200px;margin:5px;" id="preview-image" src="{{ article.image.url }}">
+            {% if article.image %}
+                <img style="border-radius: 10px; width:200px; height:200px;margin:5px;" id="preview-image" src="{{ article.image.url }}">
+            {% else %}
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUSEBIVFRUVFRUVFRUVFRUVFRUXFRUWFhUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQ0NDw0NDysZFRktKysrKysrLS0rKystNy0tKysrKy03KysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAABAAIDBwT/xAAlEAEBAQEAAgICAQQDAAAAAAAAARECEiExQVFh8ANxgZGhwdH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8A8l87qo6VrKjrfyvJVAvJaYKItpjLQrXOn+pf5rPkN9ALaN/uoBG+T1pmKwVijTTJBBehzf5rWCwEPZXIMrWrGcA7VbTcYA3ob+yLAWnQhHXf2gAaFb8ReBpixVrxWABTioBEAef2KEBgpVAfh06YvwYDVrMq3UobfoSm8+mcQXVUhWAtFiaqjmpWqMRFF1AqA1EYo6JJBuX2qLflc0UK0IEiAPTOFAMSxYAJwQGozGumAOrkYoDXkWMMA0wsSqNDoeR2Z97/AMZ/6gzU1IAUFal+mbBBQagdPFHUoL8qHoIqkOjQCVSwFFDjXIMz9nuCs2gsSUBEWqArVgrXFAaIYpAWimq0QKDDIBnQtbkHXsGItWLAVTXMZsB18ql5ID3z8/3ZkdaxRpmnqA0BgNo0QymwctUGbRCpAZ6UNiBaKtVoCnA15AMBqkAI1YBkWHmjrpRrqsYrUgkJCCwWpA66mUo3aOjRagykQAxpmg1yuqpVYDJnsCArVhxAKoqAIiOAZTGDQOEKwB1ihxb9Apz6USkAYG7WKCoaz0yI2h5IHTugdNYKymrEDKMAHB0tVAQG0AdVWLACkRAA2IFTzA19AGumSBUZNoLmnqjDAZZpz2sASKmQ2iHxR1Cqza1Ga1zfyKbGLG+qyA08wYeQFrLVrIhh6EVBqdKsRvBWOg1eVIIIoq1PgBVpFAVC0A0fAc1q9AlOmDANFOjAWhKgU36REF/n+w1WcK0dWrDJ6AUQyCAYjaAOiqw8wGY1yrPZBnqsqoRWt+LHi1zQWM10HU/ArGA1SwQGi0Wg1Vv4ZanwBiUWgozY1f0NBoNkHO/P+WuTZ7EgIWrTgKVfRsZAyDrlvWRVZ8LUOhDrCQBYlIDpzPXsSex18AG5U51Sg1WJGtGAhiUBSHPwKgMoMh5Ayf7HoU0GvOJnEDVp5ZtQNXlaqxgrp1We2oqDFpgGiN9T4VjFPNBdVl0rAMlYgVpBBaOoagYOmiAtSQBFAuUlYBh6gi0G0UDNvs33/gdfagK1CoVuUqGwGbPtiujHVEHUUavXpgG4z9mUUAlVYC1RQgZBUsACnQCBQAxagGtYy1oHRVoEdNQQK/alXQFMqkCAyNyuc6blgotC0WiG3+QJArTgxAgEBLLUoAqwSgZBYtN9gyqhYBQUgOnUjNqtGAGpFxG/EFqaxAx1AbUKEYMBdYp1+gcENGKw6AxEaCFOAEsVQJQEEqLVKCbnO+mKeQVgw6uqAMFo0DYeRaeQV/TfkxZg0H0eScvJKjt0CkUBIE3yEC7+GEgNUSA9rn/pIBDUgZnyqUIzUkDRKFX9T4cUhCqkBpiQooiQjaSUf//Z" alt="">
+            {% endif %}
         </label>
         <input style="display: none;" type="file" id="article_image" name="article_image" accept=".gif,.jpg,.png">
         <p style="color:red;font-size:7px;">이미지는 *.gif, *.jpg, *.png 형식만 가능합니다. </p>
@@ -38,25 +44,39 @@
       })
 
       </script>
-      <label for="article_title">       
-         제목
-       </label>
-       <input type="text" id="article_title" name="article_title" value="{{ article.title }}" >
-       <label for="article_content">       
-          내용
-       </label>
-       <input type="text" id="article_content" name="article_content" value="{{ article.title }}" >
+      
+      <div class="d-flex flex-column">
 
+          
+          <label for="article_title">       
+              제목
+            </label>
+            <input type="text" id="article_title" name="article_title" value="{{ article.title }}" >
+            
+            <label for="article_content">       
+                내용
+            </label>
+            <input type="text" id="article_content" name="article_content" value="{{ article.content }}" >
+            
+            <label for="article_discription">       
+                내용 2
+            </label>
+            <textarea name="article_discription" id="article_discription"></textarea>
+    
+     </div>
 
 
     <div class = "d-flex justify-content-center margint-top:5px; ">
         <button class = 'btn btn-outline-primary' style = "margin:5px;"  type="submit">수정</button>
-        <a href="{% url 'accounts:index' %}">
-            <button class='btn btn-outline-danger' style = "margin:5px;" type="button" >취소</button>
+        <a href="{% url 'accounts:index' %}" style = "padding:0px; margin:5px;" >
+            <button class='btn btn-outline-danger'  type="button" >취소</button>
         </a>
     </div>
 </form>
 
-
+<script>
+    ClassicEditor.create( document.querySelector( '#editor' ) );
+</script>
+<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 
 {% endblock content %}

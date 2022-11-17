@@ -5,8 +5,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 class Article(models.Model):
-    username = models.CharField(blank=True,max_length=50)
-    # item = models.ManyToManyField('items.Item', related_name='articles')
+    item = models.ForeignKey('items.Item', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     content = models.TextField()
     description = RichTextUploadingField(blank=True, null=True)
