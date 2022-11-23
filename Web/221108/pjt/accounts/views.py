@@ -13,6 +13,8 @@ import os
 from articles.models import Article
 import smtplib
 from email.mime.text import MIMEText
+import shutil
+
 
 # Create your views here.
 
@@ -70,8 +72,19 @@ def signup(request):
   if request.method == 'POST':
     sign_form = UserForm(request.POST, request.FILES)
     if sign_form.is_valid():
+      username = sign_form.username
       sign = sign_form.save()
-      os.mkdir("./media/userfiles/"+sign.username)
+      os.mkdir("./media/userfiles/"+username)
+      filename = sign.profile_image.url.split('/')[2]
+      print(filename)
+      src = sign.profile_image.url+'/'
+      print(src)
+      dir = "./media/userfiles/"+username+'/'
+      print('dir')
+      shutil.move(src + filename, dir + filename)
+      
+      
+      
       auth_login(request, user=sign)
       return redirect('accounts:index')
   else:
