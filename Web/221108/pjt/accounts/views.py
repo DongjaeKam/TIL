@@ -70,22 +70,40 @@ def logout(request):
 @csrf_exempt
 def signup(request):
   if request.method == 'POST':
-    sign_form = UserForm(request.POST, request.FILES)
-    if sign_form.is_valid():
-      username = sign_form.username
-      sign = sign_form.save()
-      os.mkdir("./media/userfiles/"+username)
-      filename = sign.profile_image.url.split('/')[2]
-      print(filename)
-      src = sign.profile_image.url+'/'
+      # fields = ["username", "password1", "password2", "email", 'first_name', 'last_name',"profile_image"]
+      
+      
+      username = request.POST.get('username')
+      password1 = request.POST.get('password1')
+      password2 = request.POST.get('password2')    
+    
+      if password1 == password2:
+        print('됬음')
+      else :
+        print('안됬다')
+        return redirect('accounts:signup')
+    
+      email = request.POST.get('email')
+      first_name = request.POST.get('first_name')
+      last_name = request.POST.get('last_name')
+        
+      # os.mkdir("../media/userfiles/"+username)
+      print('type : ',type(request.FILES['image'].file),'value : ',request.FILES['image'].file)
+      print('type : ',type(request.FILES['image'].field_name),'value : ',request.FILES['image'].field_name)
+      print('type : ',type(request.FILES['image'].name),'value : ',request.FILES['image'].name)
+      print('type : ',type(request.FILES['image'].content_type),'value : ',request.FILES['image'].content_type)
+      print('type : ',type(request.FILES['image'].size),'value : ',request.FILES['image'].size)
+      print('type : ',type(request.FILES['image'].charset),'value : ',request.FILES['image'].charset)
+  
+      src = '../image/profile_image/'
       print(src)
-      dir = "./media/userfiles/"+username+'/'
-      print('dir')
-      shutil.move(src + filename, dir + filename)
+      dir = "../media/userfiles/"+username+'/'
+      print(dir)
+      # shutil.move(src + filename, dir + filename)
       
       
       
-      auth_login(request, user=sign)
+      # auth_login(request, user=sign)
       return redirect('accounts:index')
   else:
     sign_form = UserForm()
