@@ -29,18 +29,13 @@ def index(request):
     return render(request,'accounts/index.html',context)
 
 
-def find_password(request):
+def find_password(request,stage):
+    
+    print(stage)
+   
     
     
-    
-    context ={
-        
-        'stage':1
-        
-    }
-    
-    
-    return render(request,'accounts/find_password.html',context)
+    return render(request,'accounts/find_password.html')
 
 @csrf_exempt
 def login(request):
