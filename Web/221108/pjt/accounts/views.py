@@ -32,8 +32,6 @@ def index(request):
 def find_password(request,stage):
     
     print(stage)
-   
-    
     
     return render(request,'accounts/find_password.html')
 
